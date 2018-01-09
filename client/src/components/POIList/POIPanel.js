@@ -37,7 +37,7 @@ const POIPanel = (props) => {
 
           return (
 
-          <ListGroupItem><Image className='poiImg' src={source} />{poi.name}</ListGroupItem>
+          <ListGroupItem key={poi._id}><Image className='poiImg' src={source} />{poi.name}</ListGroupItem>
           );
         }
 
