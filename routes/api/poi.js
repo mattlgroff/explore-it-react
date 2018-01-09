@@ -2,7 +2,8 @@ const router = require("express").Router();
 const poiController = require("../../controllers/poiController");
 
 // Matches with "/api/poi"
-router.route("/")
+router
+  .route("/")
   .get(poiController.findAll)
 
 // Matches with "/api/poi/:id"
