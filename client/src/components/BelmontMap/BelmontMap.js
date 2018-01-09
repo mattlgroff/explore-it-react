@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import {Popup, Marker, Map, TileLayer} from 'react-leaflet';
 import {Icon} from 'leaflet';
-import Image from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 import "./index.css";
 import foodIcon from '../../assets/icons/foodanddrink.svg';
 import bathroomIcon from '../../assets/icons/bathroom.svg';
@@ -14,8 +14,8 @@ class SimpleExample extends Component {
     this.state = {
       lat: 32.770844,
       lng: -117.2527572,
-      zoom: 20,
-      open: false
+      zoom: 19,
+      open: true
     };
   }
 
@@ -58,8 +58,10 @@ class SimpleExample extends Component {
           <Marker key={poi._id} icon={source} position={[poi.lat,poi.long]} onClick={this.onClick}>
 
             <Popup minWidth={90}>
-              <div>
-              <h3>{poi.name}</h3>
+              <div className='text-center'>
+              <h4>{poi.name}</h4>
+              <Image className='img thumbnail' src={poi.img_url} width='200px'></Image>
+              <span>Description goes here!</span><br></br>
               <a href={`https://www.google.com/maps/?daddr=${poi.lat},${poi.long}`}>Directions</a>
               </div>
             </Popup>
@@ -74,6 +76,3 @@ class SimpleExample extends Component {
 
 
 export default SimpleExample;
-
-
-
