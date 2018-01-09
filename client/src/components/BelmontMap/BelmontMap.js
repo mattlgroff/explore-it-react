@@ -19,7 +19,7 @@ class SimpleExample extends Component {
     return (
       <Map center={position} zoom={this.state.zoom}>
       <TileLayer
-      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>'
       url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
       />
       <GeoJSON data={getGeoJson()} />
