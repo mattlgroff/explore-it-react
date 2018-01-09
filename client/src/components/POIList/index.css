@@ -1,0 +1,12 @@
+.poiPanel {
+  position: absolute;
+  top: 160px;
+  left: 10px;
+  z-index: 100;
+  height: 600px;
+  overflow: scroll;
+}
+.poiImg {
+  width: 60px;
+  padding: 10px;
+}
