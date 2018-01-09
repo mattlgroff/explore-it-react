@@ -1,3 +1,4 @@
 module.exports = {
-  Book: require("./book")
+  POI: require("./POI"),
+  Favorites: require("./Favorites")
 };
