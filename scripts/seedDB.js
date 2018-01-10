@@ -5,8 +5,8 @@ mongoose.Promise = global.Promise;
 // This file empties the POI collection and inserts the POIs below
 
 mongoose.connect(
-  // process.env.MONGODB_URI || "mongodb://localhost/poi",
-  "mongodb://localhost/poi",
+  process.env.MONGODB_URI || "mongodb://localhost/poi",
+  // "mongodb://localhost/poi",
   {
     useMongoClient: true
   }
