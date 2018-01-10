@@ -3,8 +3,7 @@ const OktaJwtVerifier = require('@okta/jwt-verifier');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes");
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 8080;
 
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: 'https://dev-892472.oktapreview.com/oauth2/default',
@@ -45,27 +44,32 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
 app.use(express.static("client/build"));
+
+// Routes
+require("./routes/poiRoutes.js")(app);
+require("./routes/favoritesRoutes.js")(app);
+
 // Add routes, both API and view
-app.use(routes);
+// app.use(routes);
 
 /**
  * An example route that requires a valid access token for authentication, it
  * will echo the contents of the access token if the middleware successfully
  * validated the token.
  */
-app.get('/secure', authenticationRequired, (req, res) => {
-  res.json(req.jwt);
-});
+// app.get('/secure', authenticationRequired, (req, res) => {
+//   res.json(req.jwt);
+// });
 
-/**
- * Another example route that requires a valid access token for authentication, and
- * print some messages for the user if they are authenticated
- */
-app.get('/api/messages', authenticationRequired, (req, res) => {
-  res.json([{
-    message: 'Hello, word!'
-  }]);
-});
+// *
+//  * Another example route that requires a valid access token for authentication, and
+//  * print some messages for the user if they are authenticated
+ 
+// app.get('/api/messages', authenticationRequired, (req, res) => {
+//   res.json([{
+//     message: 'Hello, word!'
+//   }]);
+// });
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
@@ -76,7 +80,7 @@ mongoose.connect(
     useMongoClient: true
   }
 )
-.then(stuff => console.log(stuff))
+.then(stuff => console.log("Connected to MongoDB"))
 .catch(err => console.error(err));
 
 // Start the API server
