@@ -5,14 +5,13 @@ mongoose.Promise = global.Promise;
 // This file empties the POI collection and inserts the POIs below
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/poi",
+  process.env.MONGODB_URI || "mongodb://localhost/belmont",
   // "mongodb://localhost/poi",
   {
     useMongoClient: true
   }
 );
 
-// db.pois.find().pretty().sort({category: 1, name: 1})
 
 const poiSeed = [
 {
