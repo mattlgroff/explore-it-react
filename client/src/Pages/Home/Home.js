@@ -1,50 +1,14 @@
 import React, { Component } from 'react';
 import { Navbar, Button } from 'react-bootstrap';
-import './Home.css';
-import BelmontMap from '../../components/BelmontMap';
-import POIPanel from '../../components/POIList';
-
-const pois = [
-  {
-    name: "Mission Beach Rentals @ Belmont ",
-    _id: 2324242424,
-    category: "Shopping",
-    lat:32.769939161,
-    long:-117.252282466,
-    description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
-  },
-  {
-    name: "Locker Rental Bathroom",
-    _id: 2424242424,
-    category: "Bathroom",
-    lat:32.77022447,
-    long:-117.25216549,
-    description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
-  },
-  {
-    name: "Belmonty's Burgers",
-    _id: 2462492472,
-    category: "Food and Drink",
-    lat:32.77063615,
-    long:-117.25195669,
-    description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
-  },
-  {
-    name: "Krazy Kars",
-    _id: 2424242525,
-    category: "Attraction",
-    lat:32.770417351,
-    long:-117.251621426,
-    description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
-  }
-];
-
+import BelmontMap from './components/BelmontMap';
+import POIPanel from './components/POIList';
+import axios from 'axios'
 
 class App extends Component {
+  state = {
+    pois;
+  }
+  console.log(this.state.pois)
   goTo(route) {
     this.props.history.replace(`/${route}`)
   }
@@ -56,6 +20,14 @@ class App extends Component {
   logout() {
     this.props.auth.logout();
   }
+  ComponentWillMount(){
+    axios.get('/poi')
+    .then(res => {
+      this.setState({
+        pois: res
+      })
+    })
+  }
 
   render() {
     const { isAuthenticated } = this.props.auth;
@@ -65,7 +37,7 @@ class App extends Component {
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Expolre it</a>
+              <a href="#">Auth0 - React</a>
             </Navbar.Brand>
             <Button
               bsStyle="primary"
@@ -100,8 +72,8 @@ class App extends Component {
             }
           </Navbar.Header>
         </Navbar>
-        <BelmontMap pois={pois} />
-        <POIPanel pois={pois} />
+        <BelmontMap pois={this.state.pois} />
+        <POIPanel pois={this.state.pois} />
       </div>
     );
   }
