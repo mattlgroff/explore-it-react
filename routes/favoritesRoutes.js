@@ -7,14 +7,19 @@ module.exports = app => {
     favoritesController.remove(req, res);
   });
 
+  //Works to add favorite
   app.post("/favorites", (req, res) => {
     favoritesController.addOne(req, res);
   });
 
+
+  //Also works to get all favorites
   app.get("/favorites", (req, res) => {
     favoritesController.findAllFavorites(req, res);
   });
 
+
+  //Array of favorites in controller function is returning blank
   app.get("/is-favorite", (req, res) => {
     favoritesController.isFavorite(req, res);
   });
