@@ -90,6 +90,9 @@ class App extends Component {
 
     return (
       <div>
+        
+        <BelmontMap pois={this.state.pois} />
+        <POIPanel pois={this.state.pois} />
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
@@ -128,8 +131,6 @@ class App extends Component {
             }
           </Navbar.Header>
         </Navbar>
-        <BelmontMap pois={this.state.pois} />
-        <POIPanel pois={this.state.pois} />
       </div>
     );
   }
