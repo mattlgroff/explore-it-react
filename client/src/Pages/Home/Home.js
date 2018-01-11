@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import { Navbar, Button } from 'react-bootstrap';
-import BelmontMap from './components/BelmontMap';
-import POIPanel from './components/POIList';
-import axios from 'axios'
+import './Home.css';
+import BelmontMap from '../../components/BelmontMap';
+import POIPanel from '../../components/POIList';
+import axiosHelper from '../../api/axios.js';
 
-class App extends Component {
+class Home extends Component {
+
   state = {
-    pois;
+    pois: []
+  };
+
+  // When the component mounts, load the next dog to be displayed
+  componentDidMount() {
+    this.loadPoi();
   }
-  console.log(this.state.pois)
+
   goTo(route) {
     this.props.history.replace(`/${route}`)
   }
@@ -20,20 +27,31 @@ class App extends Component {
   logout() {
     this.props.auth.logout();
   }
-  ComponentWillMount(){
-    axios.get('/poi')
-    .then(res => {
+
+  loadPoi = () => {
+    console.log("Called loadPoi");
+    axiosHelper.getAllPoi()
+    .then(results => {
+      console.log(results.data);
       this.setState({
-        pois: res
-      })
+          pois: results.data
+        })
+      console.log("State of Pois:")
+      console.log(this.state.pois);
     })
+    .catch(err => console.error(err));
   }
 
+
   render() {
+
     const { isAuthenticated } = this.props.auth;
 
     return (
       <div>
+        
+        <BelmontMap pois={this.state.pois} />
+        <POIPanel pois={this.state.pois} />
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
@@ -72,11 +90,9 @@ class App extends Component {
             }
           </Navbar.Header>
         </Navbar>
-        <BelmontMap pois={this.state.pois} />
-        <POIPanel pois={this.state.pois} />
       </div>
     );
   }
 }
 
-export default App;
+export default Home;
