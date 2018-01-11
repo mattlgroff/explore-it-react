@@ -1,19 +1,22 @@
 const favoritesController = require("../controllers/favoritesController.js");
 
 module.exports = app => {
-  // //Sends JSON of every NUTRITION in our database
-  // app.get("/api/all", favoritesController.selectAll);
 
-  // //Sends JSON of one NUTRITION in our database
-  // app.get("/api/:id", (req, res) => {
-  //   favoritesController.selectOne(req, res, req.params.id);
-  // });
+  //Remove Favorite
+  app.post("/remove-favorite", (req, res) => {
+    favoritesController.remove(req, res);
+  });
 
-  // //Sends JSON of all of a USER's saved nutrition
-  // app.get("/api/user/:id", (req, res) => {
-  //   favoritesController.userNutrition(req, res);
-  // });
+  app.post("/favorites", (req, res) => {
+    favoritesController.addOne(req, res);
+  });
 
-  // //Creates a new record for a Nutrition Fact in our database
-  // app.post("/api/new", favoritesController.create);
+  app.get("/favorites", (req, res) => {
+    favoritesController.findAllFavorites(req, res);
+  });
+
+  app.get("/is-favorite", (req, res) => {
+    favoritesController.isFavorite(req, res);
+  });
+
 }

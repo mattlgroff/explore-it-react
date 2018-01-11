@@ -14,6 +14,20 @@ class Home extends Component {
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
     this.loadPoi();
+
+    const { userProfile, getProfile } = this.props.auth;
+
+    if (!userProfile) {
+      getProfile((err, profile) => {
+        this.setState({ profile });
+        console.log("Logged in as: " + this.state.profile)
+        console.log(this.state.profile);
+      });
+    } else {
+        console.log("Not logged in");
+        this.setState({ profile: userProfile });
+        console.log("Not logged in as: " + this.state.profile)
+    }
   }
 
   goTo(route) {
@@ -32,25 +46,21 @@ class Home extends Component {
     console.log("Called loadPoi");
     axiosHelper.getAllPoi()
     .then(results => {
-      console.log(results.data);
       this.setState({
           pois: results.data
         })
-      console.log("State of Pois:")
-      console.log(this.state.pois);
     })
     .catch(err => console.error(err));
   }
 
 
   render() {
-
     const { isAuthenticated } = this.props.auth;
-
+    
     return (
       <div>
         
-        <BelmontMap pois={this.state.pois} />
+        <BelmontMap pois={this.state.pois} auth={this.props.auth} profile={this.state.profile}/>
         <POIPanel pois={this.state.pois} />
         <Navbar fluid>
           <Navbar.Header>
@@ -62,7 +72,7 @@ class Home extends Component {
               className="btn-margin"
               onClick={this.goTo.bind(this, 'home')}
               >
-              Home
+              {}Home
             </Button>
             {
               !isAuthenticated() && (

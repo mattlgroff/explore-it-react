@@ -1,12 +1,13 @@
 import React, { Component }  from 'react';
 import {Popup, Marker, Map, TileLayer} from 'react-leaflet';
 import {Icon} from 'leaflet';
-import {Image} from 'react-bootstrap';
+import {Button, Image} from 'react-bootstrap';
 import "./index.css";
 import foodIcon from '../../assets/icons/foodanddrink.svg';
 import bathroomIcon from '../../assets/icons/bathroom.svg';
 import shoppingIcon from '../../assets/icons/shopping.svg';
 import attractionIcon from '../../assets/icons/attraction.svg';
+import axiosHelper from '../../api/axios.js';
 
 class SimpleExample extends Component {
   constructor() {
@@ -19,9 +20,65 @@ class SimpleExample extends Component {
     };
   }
 
+  isFavoriteThenRemove = (e) => {
+    let profile = this.props.profile.sub;
+    let poi = e.target.id;
+
+    axiosHelper.isFavorite(profile, poi).
+    then(results => {
+      console.log(results.data);
+      if(results.data.length){
+        axiosHelper.removeFavorite(profile, poi)
+        .then(results => console.log("Removed from favorites."))
+        .catch(err => console.error(err));
+      }
+      else{
+        console.log("Not a favorite.");
+      }
+    })
+    .catch(err => console.error(err));
+  };
+
+  addToFavorites = (e) => {
+    let profile = this.props.profile.sub;
+    let poi = e.target.id;
+
+    axiosHelper.addToFavorites(profile, poi)
+    .then(results => {
+      console.log("Successfully added to favorites.")
+      //console.log(results);
+      this.showAllFavorites(profile);
+    })
+    .catch(err => console.error(err));
+    
+  };
+
+  showAllFavorites = () => {
+    let profile = this.props.profile.sub;
+    axiosHelper.showAllFavorites(profile)
+    .then(results => {
+      console.log(results);
+    })
+    .catch(err => console.error(err));
+  };
+
+  // removeFavorite = (e) => {
+  //   let poi = e.target.id;
+  //   let profile = this.props.profile.sub;
+
+  //   console.log("Already is a favorite: ");
+  //   console.log(this.isFavorite(poi));
+
+  //   axiosHelper.removeFavorite(profile, poi)
+  //   .then(results => console.log("Removed from favorites."))
+  //   .catch(err => console.error(err));
+  // }
+
   render() {
+
+    const { isAuthenticated } = this.props.auth;
+
     const position = [this.state.lat, this.state.lng];
-    console.log('map is rendered')
     return (
       <Map center={position} zoom={this.state.zoom}>
       <TileLayer
@@ -54,20 +111,40 @@ class SimpleExample extends Component {
             default:
             break;
           }
-          console.log("source: " + source);
+          //console.log("source: " + source);
 
         return (
           <Marker key={poi._id} icon={source} position={[poi.lat,poi.long]} onClick={this.onClick}>
-
-            <Popup minWidth={90}>
-              <div className='text-center'>
-              <h4>{poi.name}</h4>
-              <Image className='img thumbnail' src={img_src} width='200px'></Image>
-              <a href={`${window.location.href}poi/${poi._id}`}>Detailed View</a>
-              <br></br>
-              <a target='_blank' href={`https://www.google.com/maps/?daddr=${poi.lat},${poi.long}`}>Directions</a>
-              </div>
-            </Popup>
+            {
+              !isAuthenticated() && (
+                <Popup minWidth={90}>
+                  <div className='text-center'>
+                  <h4>{poi.name}</h4>
+                  <Image className='img thumbnail' src={img_src} width='200px'></Image>
+                  <br></br>
+                  Please Login to add to Favorites.
+                  <br></br>
+                  <a target='_blank' href={`https://www.google.com/maps/?daddr=${poi.lat},${poi.long}`}>Directions</a>
+                  </div>
+                </Popup>
+              )
+            }
+            {
+              isAuthenticated() && (
+                <Popup minWidth={90}>
+                  <div className='text-center'>
+                  <h4>{poi.name}</h4>
+                  <Image className='img thumbnail' src={img_src} width='200px'></Image>
+                  <br></br>
+                  <Button className='btn' id={poi._id} onClick={this.addToFavorites}>Save to Favorites</Button>
+                  <Button className='btn' id={poi._id} onClick={this.isFavoriteThenRemove}>Remove Favorite</Button>
+                  <br></br>
+                  <a target='_blank' href={`https://www.google.com/maps/?daddr=${poi.lat},${poi.long}`}>Directions</a>
+                  </div>
+                </Popup>
+              )
+            }
+            
           </Marker>
           );
       }
