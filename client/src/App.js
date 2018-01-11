@@ -6,13 +6,13 @@ import POIPanel from './components/POIList';
 
 const pois = [
   {
-    name: "Mission Beach Rentals @ Belmont ",
+    name: "Mission Beach Rentals",
     _id: 2324242424,
     category: "Shopping",
     lat:32.769939161,
     long:-117.252282466,
     description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
+    img_url: "missionbeachrental.jpg"
   },
   {
     name: "Locker Rental Bathroom",
@@ -21,7 +21,7 @@ const pois = [
     lat:32.77022447,
     long:-117.25216549,
     description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
+    img_url: "lockerbathrooms.jpg"
   },
   {
     name: "Belmonty's Burgers",
@@ -30,7 +30,7 @@ const pois = [
     lat:32.77063615,
     long:-117.25195669,
     description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
+    img_url: "belmontyburgers.jpg"
   },
   {
     name: "Krazy Kars",
@@ -39,7 +39,7 @@ const pois = [
     lat:32.770417351,
     long:-117.251621426,
     description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
+    img_url: "krazykars.jpg"
   }
 ];
 
