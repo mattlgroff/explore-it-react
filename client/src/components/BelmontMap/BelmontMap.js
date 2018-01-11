@@ -8,7 +8,7 @@ import bathroomIcon from '../../assets/icons/bathroom.svg';
 import shoppingIcon from '../../assets/icons/shopping.svg';
 import attractionIcon from '../../assets/icons/attraction.svg';
 
-class SimpleExample extends Component {
+class BelmontMap extends Component {
   constructor() {
     super()
     this.state = {
@@ -75,4 +75,4 @@ class SimpleExample extends Component {
 }
 
 
-export default SimpleExample;
+export default BelmontMap;
