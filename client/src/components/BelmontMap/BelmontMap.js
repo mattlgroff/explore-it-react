@@ -30,6 +30,8 @@ class SimpleExample extends Component {
       />
             {this.props.pois.map(poi => {
 
+        let img_src = require(`../../assets/photos/${poi.img_url}`);
+
         let source;
 
           switch(poi.category){
@@ -60,9 +62,10 @@ class SimpleExample extends Component {
             <Popup minWidth={90}>
               <div className='text-center'>
               <h4>{poi.name}</h4>
-              <Image className='img thumbnail' src={poi.img_url} width='200px'></Image>
-              <span>Description goes here!</span><br></br>
-              <a href={`https://www.google.com/maps/?daddr=${poi.lat},${poi.long}`}>Directions</a>
+              <Image className='img thumbnail' src={img_src} width='200px'></Image>
+              <a href={`${window.location.href}poi/${poi._id}`}>Detailed View</a>
+              <br></br>
+              <a target='_blank' href={`https://www.google.com/maps/?daddr=${poi.lat},${poi.long}`}>Directions</a>
               </div>
             </Popup>
           </Marker>
