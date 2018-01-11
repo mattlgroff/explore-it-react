@@ -4,15 +4,16 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.POI
-      .find(req.query)
-      .sort({ date: -1 })
+      .find()
+      .sort({ category: 1, name: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  findOne: function(req, res){
     db.POI
-      .create(req.body)
+      .findById({ _id: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+  
 };
