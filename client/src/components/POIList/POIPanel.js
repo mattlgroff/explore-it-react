@@ -37,11 +37,11 @@ const POIPanel = (props) => {
 
           return (
 
-          <ListGroupItem key={poi._id}><Image className='poiImg' src={source} />{poi.name}</ListGroupItem>
+          <ListGroupItem data-id={poi._id} key={poi._id} onClick={props.poiOnClick}><Image className='poiImg' src={source} />{poi.name}</ListGroupItem>
           );
         }
 
-        
+
         )
       }
     </ListGroup>
