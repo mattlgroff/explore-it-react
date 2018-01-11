@@ -48,7 +48,7 @@ const poiSeed = [
   img_url: "wings.jpg"
 },
 {
-  name: "Mission Beach Rentals @ Belmont ",
+  name: "Mission Beach Rentals",
   category: "Shopping",
   lat:32.769939161,
   long:-117.252282466,

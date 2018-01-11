@@ -3,48 +3,19 @@ import { Navbar, Button } from 'react-bootstrap';
 import './Home.css';
 import BelmontMap from '../../components/BelmontMap';
 import POIPanel from '../../components/POIList';
+import axiosHelper from '../../api/axios.js';
 
-const pois = [
-  {
-    name: "Mission Beach Rentals @ Belmont ",
-    _id: 2324242424,
-    category: "Shopping",
-    lat:32.769939161,
-    long:-117.252282466,
-    description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
-  },
-  {
-    name: "Locker Rental Bathroom",
-    _id: 2424242424,
-    category: "Bathroom",
-    lat:32.77022447,
-    long:-117.25216549,
-    description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
-  },
-  {
-    name: "Belmonty's Burgers",
-    _id: 2462492472,
-    category: "Food and Drink",
-    lat:32.77063615,
-    long:-117.25195669,
-    description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
-  },
-  {
-    name: "Krazy Kars",
-    _id: 2424242525,
-    category: "Attraction",
-    lat:32.770417351,
-    long:-117.251621426,
-    description: "Replace this description",
-    img_url: "https://i.imgur.com/8KLbDxe.jpg"
+class Home extends Component {
+
+  state = {
+    pois: []
+  };
+
+  // When the component mounts, load the next dog to be displayed
+  componentDidMount() {
+    this.loadPoi();
   }
-];
 
-
-class App extends Component {
   goTo(route) {
     this.props.history.replace(`/${route}`)
   }
@@ -57,15 +28,34 @@ class App extends Component {
     this.props.auth.logout();
   }
 
+  loadPoi = () => {
+    console.log("Called loadPoi");
+    axiosHelper.getAllPoi()
+    .then(results => {
+      console.log(results.data);
+      this.setState({
+          pois: results.data
+        })
+      console.log("State of Pois:")
+      console.log(this.state.pois);
+    })
+    .catch(err => console.error(err));
+  }
+
+
   render() {
+
     const { isAuthenticated } = this.props.auth;
 
     return (
       <div>
+        
+        <BelmontMap pois={this.state.pois} />
+        <POIPanel pois={this.state.pois} />
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Expolre it</a>
+              <a href="#">Auth0 - React</a>
             </Navbar.Brand>
             <Button
               bsStyle="primary"
@@ -100,11 +90,9 @@ class App extends Component {
             }
           </Navbar.Header>
         </Navbar>
-        <BelmontMap pois={pois} />
-        <POIPanel pois={pois} />
       </div>
     );
   }
 }
 
-export default App;
+export default Home;
