@@ -8,7 +8,7 @@ import bathroomIcon from '../../assets/icons/bathroom.svg';
 import shoppingIcon from '../../assets/icons/shopping.svg';
 import attractionIcon from '../../assets/icons/attraction.svg';
 
-class BelmontMap extends Component {
+class SimpleExample extends Component {
   constructor() {
     super()
     this.state = {
@@ -29,6 +29,8 @@ class BelmontMap extends Component {
       url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
       />
             {this.props.pois.map(poi => {
+
+        let img_src = require(`../../assets/photos/${poi.img_url}`);
 
         let source;
 
@@ -60,9 +62,10 @@ class BelmontMap extends Component {
             <Popup minWidth={90}>
               <div className='text-center'>
               <h4>{poi.name}</h4>
-              <Image className='img thumbnail' src={poi.img_url} width='200px'></Image>
-              <span>Description goes here!</span><br></br>
-              <a href={`https://www.google.com/maps/?daddr=${poi.lat},${poi.long}`}>Directions</a>
+              <Image className='img thumbnail' src={img_src} width='200px'></Image>
+              <a href={`${window.location.href}poi/${poi._id}`}>Detailed View</a>
+              <br></br>
+              <a target='_blank' href={`https://www.google.com/maps/?daddr=${poi.lat},${poi.long}`}>Directions</a>
               </div>
             </Popup>
           </Marker>
@@ -75,4 +78,4 @@ class BelmontMap extends Component {
 }
 
 
-export default BelmontMap;
+export default SimpleExample;
