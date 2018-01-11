@@ -1,0 +1,12 @@
+.userPhoto {
+  width: 40px;
+  height: 40px;
+  padding: 4px;
+  filter: drop-shadow( -1px -1px 1px #000 );
+  display: inline-block;
+}
+.userName {
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  display: inline-block;
+}

@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
-import { Navbar, Button } from 'react-bootstrap';
 import './Home.css';
 import BelmontMap from '../../components/BelmontMap';
 import POIPanel from '../../components/POIList';
+import Profile from '../../components/Profile';
+import FavoriteStar from '../../components/FavoriteStar';
 import axiosHelper from '../../api/axios.js';
+import brandlogo from '../../assets/icons/placeholder.svg'
 
 class Home extends Component {
 
   state = {
-    pois: []
+    showFavorites: false,
+    pois: [],
+    favoritePois: []
   };
+
+  componentWillMount(){
+    if (this.props.auth.isAuthenticated()) {
+      this.loadFavPoi()
+    }
+  }
 
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
@@ -20,13 +30,13 @@ class Home extends Component {
     if (!userProfile) {
       getProfile((err, profile) => {
         this.setState({ profile });
-        console.log("Logged in as: " + this.state.profile)
+        console.log("Logged in as: ", this.state.profile)
         console.log(this.state.profile);
       });
     } else {
-        console.log("Not logged in");
-        this.setState({ profile: userProfile });
-        console.log("Not logged in as: " + this.state.profile)
+      console.log("Not logged in");
+      this.setState({ profile: userProfile });
+      console.log("Not logged in as: ", this.state.profile)
     }
   }
 
@@ -47,59 +57,91 @@ class Home extends Component {
     axiosHelper.getAllPoi()
     .then(results => {
       this.setState({
-          pois: results.data
-        })
+        pois: results.data
+      })
     })
     .catch(err => console.error(err));
   }
 
+  loadFavPoi = () => {
+    console.log("Called loadFavorites");
+    axiosHelper.showAllFavorites()
+    .then(results => {
+      results.data.map(poi => {
+        
+      })
+    })
+    .catch(err => console.error(err));
+  }
+
+  showPanel = () => {
+    this.setState({
+      showFavorites: (this.state.showFavorites ? false : true)
+    })
+  }
+
+  displayPois = () => {
+    return this.state.showFavorites ? this.state.favoritePois : this.state.pois;
+  }
 
   render() {
+
     const { isAuthenticated } = this.props.auth;
-    
     return (
       <div>
-        
-        <BelmontMap pois={this.state.pois} auth={this.props.auth} profile={this.state.profile}/>
-        <POIPanel pois={this.state.pois} />
-        <Navbar fluid>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">Auth0 - React</a>
-            </Navbar.Brand>
-            <Button
-              bsStyle="primary"
-              className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
-              >
-              {}Home
-            </Button>
-            {
-              !isAuthenticated() && (
-                <Button
+        <nav className='navbar navbar-expand transparent'>
+          <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className='mr-auto'>
+            <img className='brandLogo' src={brandlogo} alt="brandlogo" />
+            <a className='brandName' href="#">Explore it</a>
+          </div>
+          <ul className='navbar-nav'>
+          {
+            isAuthenticated() && (
+              <li className='nav-item'>
+                <FavoriteStar showPanel={this.showPanel}/>
+              </li>
+            )
+          }
+          {
+            isAuthenticated() && (
+              <li className='nav-item'>
+                <Profile auth={this.props.auth}/>
+              </li>
+            )
+          }
+
+          {
+            !isAuthenticated() && (
+              <li className='nav-item'>
+                <button
                   id="qsLoginBtn"
-                  bsStyle="primary"
-                  className="btn-margin"
+                  className="btn-primary login"
                   onClick={this.login.bind(this)}
                   >
                   Log In
-                </Button>
-              )
-            }
-            {
-              isAuthenticated() && (
-                <Button
+                </button>
+              </li>
+            )
+          }
+          {
+            isAuthenticated() && (
+              <li className='nav-item'>
+                <button
                   id="qsLogoutBtn"
-                  bsStyle="primary"
-                  className="btn-margin"
-                  onClick={this.logout.bind(this)}
-                  >
+                  className="btn-primary login"
+                  onClick={this.logout.bind(this)}>
                   Log Out
-                </Button>
-              )
-            }
-          </Navbar.Header>
-        </Navbar>
+                </button>
+              </li>
+            )
+          }
+        </ul>
+        </nav>
+        <BelmontMap pois={this.displayPois()} auth={this.props.auth} profile={this.state.profile}/>
+        <POIPanel pois={this.displayPois()} />
       </div>
     );
   }
