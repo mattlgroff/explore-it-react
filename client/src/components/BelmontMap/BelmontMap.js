@@ -20,6 +20,7 @@ class SimpleExample extends Component {
     };
   }
 
+
   isFavoriteThenRemove = (e) => {
     let profile = this.props.profile.sub;
     let poi = e.target.id;

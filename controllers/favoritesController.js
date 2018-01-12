@@ -23,8 +23,11 @@ module.exports = {
     console.log("List: " + list);
 
     db.Favorites
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .findOne({profile: profile}, {$push: {list: req.body.list}})
+      .then(dbModel => {
+        console.log(dbModel)
+        return res.json(dbModel)
+      })
       .catch(err => {
         console.error(err);
         res.status(422).json(err)
