@@ -4,7 +4,6 @@ const db = require("../models");
 module.exports = {
   findAllFavorites: function(req, res) {
     let profile = req.body.profile;
-
     db.Favorites
       .find(profile)
       .sort({ list: 1 })
