@@ -12,14 +12,9 @@ class Home extends Component {
   state = {
     showFavorites: false,
     pois: [],
-    favoritePois: []
+    favoritePois: [],
+    favoritePoisList:[]
   };
-
-  componentWillMount(){
-    if (this.props.auth.isAuthenticated()) {
-      this.loadFavPoi()
-    }
-  }
 
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
@@ -30,13 +25,11 @@ class Home extends Component {
     if (!userProfile) {
       getProfile((err, profile) => {
         this.setState({ profile });
+        this.getFavPoiIDs(profile);
         console.log("Logged in as: ", this.state.profile)
-        console.log(this.state.profile);
       });
     } else {
-      console.log("Not logged in");
       this.setState({ profile: userProfile });
-      console.log("Not logged in as: ", this.state.profile)
     }
   }
 
@@ -53,7 +46,6 @@ class Home extends Component {
   }
 
   loadPoi = () => {
-    console.log("Called loadPoi");
     axiosHelper.getAllPoi()
     .then(results => {
       this.setState({
@@ -63,15 +55,23 @@ class Home extends Component {
     .catch(err => console.error(err));
   }
 
-  loadFavPoi = () => {
-    console.log("Called loadFavorites");
-    axiosHelper.showAllFavorites()
+  getFavPoiIDs = (profile) => {
+    axiosHelper.showAllFavorites(profile)
     .then(results => {
-      results.data.map(poi => {
-        
+      results.data.map(profileData => {
+        this.state.favoritePoisList.push(profileData.list)
       })
     })
-    .catch(err => console.error(err));
+    .then(() => this.loadFavPoi(this.state.favoritePoisList))
+  }
+
+  loadFavPoi = (IDsArray) => {
+    axiosHelper.getAllFavoritesPoi(IDsArray)
+    .then(results => {
+      results.data.map(poi => {
+        this.state.favoritePois.push(poi)
+      })
+    })
   }
 
   showPanel = () => {
