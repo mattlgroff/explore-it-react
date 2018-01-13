@@ -49,27 +49,6 @@ app.use(express.static("client/build"));
 require("./routes/poiRoutes.js")(app);
 require("./routes/favoritesRoutes.js")(app);
 
-// Add routes, both API and view
-// app.use(routes);
-
-/**
- * An example route that requires a valid access token for authentication, it
- * will echo the contents of the access token if the middleware successfully
- * validated the token.
- */
-// app.get('/secure', authenticationRequired, (req, res) => {
-//   res.json(req.jwt);
-// });
-
-// *
-//  * Another example route that requires a valid access token for authentication, and
-//  * print some messages for the user if they are authenticated
- 
-// app.get('/api/messages', authenticationRequired, (req, res) => {
-//   res.json([{
-//     message: 'Hello, word!'
-//   }]);
-// });
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
