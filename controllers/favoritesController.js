@@ -4,10 +4,11 @@ const db = require("../models");
 // Defining methods for the favoritesController
 let favoritesController = {
   findAllFavorites: function(req, res) {
-    let profile = req.body.profile;
+
+    let honey = req.params.profile;
     db.Favorites
-      .find({profile: profile})
-      .then(dbModel => res.json(dbModel.list))
+      .findOne({profile: honey})
+      .then(results => res.json({list: results.list}))
       .catch(err => {
         console.error(err);
         res.status(422).json(err)

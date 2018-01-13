@@ -41,19 +41,9 @@ class SimpleExample extends Component {
     .then(results => {
       console.log("Successfully added to favorites.")
       console.log(results);
-      this.showAllFavorites(profile);
     })
     .catch(err => console.error(err));
 
-  };
-
-  showAllFavorites = () => {
-    let profile = this.props.profile.sub;
-    axiosHelper.showAllFavorites(profile)
-    .then(results => {
-      console.log(results);
-    })
-    .catch(err => console.error(err));
   };
 
   // removeFavorite = (e) => {

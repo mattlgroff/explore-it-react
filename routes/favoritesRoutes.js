@@ -12,7 +12,7 @@ module.exports = app => {
 
 
   //Also works to get all favorites
-  app.get("/favorites", (req, res) => {
+  app.get("/favorites/:profile", (req, res) => {
     favoritesController.findAllFavorites(req, res);
   });
 
