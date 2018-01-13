@@ -18,9 +18,8 @@ const helpers = {
     });
   },
   showAllFavorites: function(profile){
-    return axios.get(domain + '/favorites', {
-      profile: profile
-    });
+    console.log("I am looking here:" + profile);
+    return axios.get(domain + '/favorites/' + profile);
   },
   removeFavorite: function(profile, list){
     return axios.post(domain + '/remove-favorite', {

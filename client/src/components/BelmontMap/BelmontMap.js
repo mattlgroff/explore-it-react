@@ -20,21 +20,15 @@ class SimpleExample extends Component {
     };
   }
 
+
   isFavoriteThenRemove = (e) => {
     let profile = this.props.profile.sub;
     let poi = e.target.id;
 
-    axiosHelper.isFavorite(profile, poi).
-    then(results => {
-      console.log(results.data);
-      if(results.data.length){
-        axiosHelper.removeFavorite(profile, poi)
-        .then(results => console.log("Removed from favorites."))
-        .catch(err => console.error(err));
-      }
-      else{
-        console.log("Not a favorite.");
-      }
+    axiosHelper.removeFavorite(profile, poi)
+    .then(results => {
+      console.log("Removed from favorites.")
+      console.log(results);
     })
     .catch(err => console.error(err));
   };
@@ -46,20 +40,10 @@ class SimpleExample extends Component {
     axiosHelper.addToFavorites(profile, poi)
     .then(results => {
       console.log("Successfully added to favorites.")
-      //console.log(results);
-      this.showAllFavorites(profile);
-    })
-    .catch(err => console.error(err));
-
-  };
-
-  showAllFavorites = () => {
-    let profile = this.props.profile.sub;
-    axiosHelper.showAllFavorites(profile)
-    .then(results => {
       console.log(results);
     })
     .catch(err => console.error(err));
+
   };
 
   // removeFavorite = (e) => {

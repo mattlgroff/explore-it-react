@@ -16,6 +16,15 @@ class Home extends Component {
     favoritePoisList:[]
   };
 
+
+  showAllFavorites = (profile) => {
+    axiosHelper.showAllFavorites(profile)
+    .then(results => {
+      console.log(results);
+    })
+    .catch(err => console.error(err));
+  };
+
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
     this.loadPoi();
@@ -56,11 +65,12 @@ class Home extends Component {
   }
 
   getFavPoiIDs = (profile) => {
-    axiosHelper.showAllFavorites(profile)
+    let scope = this;
+    console.log("Who is this: " + profile.sub);
+    axiosHelper.showAllFavorites(profile.sub)
     .then(results => {
-      results.data.map(profileData => {
-        this.state.favoritePoisList.push(profileData.list)
-      })
+      console.log("What are these: ",results);
+      scope.setState({favoritePoisList: results.data.list})
     })
     .then(() => this.loadFavPoi(this.state.favoritePoisList))
   }
