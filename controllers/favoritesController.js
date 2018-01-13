@@ -7,9 +7,8 @@ let favoritesController = {
     let profile = req.body.profile;
 
     db.Favorites
-      .find(profile)
-      .sort({ list: 1 })
-      .then(dbModel => res.json(dbModel))
+      .find({profile: profile})
+      .then(dbModel => res.json(dbModel.list))
       .catch(err => {
         console.error(err);
         res.status(422).json(err)
