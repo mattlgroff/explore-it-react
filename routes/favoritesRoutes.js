@@ -3,9 +3,7 @@ const favoritesController = require("../controllers/favoritesController.js");
 module.exports = app => {
 
   //Remove Favorite
-  app.post("/remove-favorite", (req, res) => {
-    favoritesController.remove(req, res);
-  });
+  app.post("/remove-favorite", favoritesController.remove);
 
   //Works to add favorite
   app.post("/favorites", (req, res) => {

@@ -1,7 +1,8 @@
 const db = require("../models");
 
+
 // Defining methods for the favoritesController
-module.exports = {
+let favoritesController = {
   findAllFavorites: function(req, res) {
     let profile = req.body.profile;
 
@@ -17,33 +18,16 @@ module.exports = {
   addOne: function(req, res) {
     console.log(req.body);
     let profile = req.body.profile;
-    let list =  req.body.list;
+    let fave =  req.body.list;
     console.log("Hit addOne controller option");
     console.log("Profile: " + profile);
-    console.log("List: " + list);
+    console.log("List: " + fave);
+
 
     db.Favorites
-      .findOne({profile: profile}, {$push: {list: req.body.list}})
-      .then(dbModel => {
-        console.log(dbModel)
-        return res.json(dbModel)
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(422).json(err)
-      });
-  },
-  remove: function(req, res) {
-    let profile = req.body.profile;
-    let list =  req.body.list;
-    console.log("Hit Remove controller option");
-    console.log("Profile: " + profile);
-    console.log("List: " + list);
-
-    db.Favorites
-      .find({ profile: req.body.profile, list: req.body.list })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
+      .findOrCreate({profile: profile})
+      .then(results => db.Favorites.update({profile: profile} , { $addToSet: { list: fave } }))
+      .then((dbModel) => res.json(dbModel))
       .catch(err => {
         console.error(err);
         res.status(422).json(err)
@@ -60,5 +44,23 @@ module.exports = {
         console.error(err);
         res.status(422).json(err)
       });
+  },
+  remove: function(req , res){
+    let profile = req.body.profile;
+    let fave =  req.body.list;
+    console.log("Hit Remove controller option");
+    console.log("Profile: " + profile);
+    console.log("List: " + fave);
+
+    db.Favorites
+      .find({ profile: profile})
+      .then(results => db.Favorites.update({profile: profile} , { $pull: { list: fave } }))
+      .then(dbModel => res.json(dbModel))
+      .catch(err => {
+        console.error(err);
+        res.status(422).json(err)
+      });
   }
 };
+
+module.exports = favoritesController;
