@@ -5,7 +5,6 @@ const db = require("../models");
 let favoritesController = {
   findAllFavorites: function(req, res) {
     let profile = req.body.profile;
-
     db.Favorites
       .find({profile: profile})
       .then(dbModel => res.json(dbModel.list))

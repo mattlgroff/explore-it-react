@@ -15,7 +15,7 @@ class SimpleExample extends Component {
     this.state = {
       lat: 32.770844,
       lng: -117.2527572,
-      zoom: 19,
+      zoom: 18,
       open: true
     };
   }
@@ -44,7 +44,7 @@ class SimpleExample extends Component {
       this.showAllFavorites(profile);
     })
     .catch(err => console.error(err));
-    
+
   };
 
   showAllFavorites = () => {
@@ -74,7 +74,7 @@ class SimpleExample extends Component {
 
     const position = [this.state.lat, this.state.lng];
     return (
-      <Map center={position} zoom={this.state.zoom}>
+      <Map zoomControl={false} center={position} zoom={this.state.zoom}>
       <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>'
       url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
@@ -138,7 +138,7 @@ class SimpleExample extends Component {
                 </Popup>
               )
             }
-            
+
           </Marker>
           );
       }
