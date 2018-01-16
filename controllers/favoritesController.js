@@ -52,9 +52,11 @@ let favoritesController = {
     console.log("List: " + fave);
 
     db.Favorites
-      .find({ profile: profile})
-      .then(results => db.Favorites.update({profile: profile} , { $pull: { list: fave } }))
-      .then(dbModel => res.json(dbModel))
+      .update({profile: profile} , { $pull: { list: fave } })
+      .then(dbModel => {
+        console.log('dbModel', dbModel)
+        res.json(dbModel)
+      })
       .catch(err => {
         console.error(err);
         res.status(422).json(err)

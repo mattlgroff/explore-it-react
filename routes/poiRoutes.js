@@ -7,8 +7,8 @@ module.exports = app => {
   });
 
   //Sends JSON of every Favorite POI in our database
-  app.post("/belmon/poi/findFavorites", (req, res) => {
-    poiController.findAllFavorites(req, res);
+  app.post("/belmont/poi/findFavorites", (req, res) => {
+    poiController.findAllFavoritePois(req, res);
   });
 
   //Sends JSON of one POI in our database
