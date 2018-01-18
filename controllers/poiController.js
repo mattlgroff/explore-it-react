@@ -10,12 +10,10 @@ module.exports = {
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
-  findAllFavorites: function(req, res){
-    let IDsArray = []
-    req.body.forEach(callback);
-    function callback(id) {
-      IDsArray.push(new mongoose.Types.ObjectId(id))
-    }
+  findAllFavoritePois: function(req, res){
+    console.log('req.body.listArr', req.body.listArr)
+    let reqArr = req.body.listArr;
+    const IDsArray = reqArr.map(id => new mongoose.Types.ObjectId(id))
     db.POI
     .find({_id: {$in: IDsArray}})
     .then(dbModel => {
