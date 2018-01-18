@@ -1,14 +1,19 @@
 {
-  "name": "mern",
+  "name": "explore-it",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "node scripts/build.js",
+    "server": "node server.js",
+    "grossmont-client": "node scripts/start-grossmont-client.js",
+    "belmont-client": "node scripts/start-belmont-client.js",
+    "start-both": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build-grossmont": "node scripts/build-grossmont.js",
+    "build-belmont": "node scripts/build-belmont.js",
     "seed": "node scripts/seedDB.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "yarn && cd client && yarn"
+    "installDeps": "yarn && cd grossmont-client && yarn"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +27,7 @@
     "cors": "^2.8.4",
     "express": "^4.15.4",
     "mongoose": "^4.13.8",
-    "mongoose-findorcreate": "^2.0.0"
+    "mongoose-findorcreate": "^2.0.0",
+    "path": "^0.12.7"
   }
 }

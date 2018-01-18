@@ -10,7 +10,6 @@ module.exports = app => {
     favoritesController.addOne(req, res);
   });
 
-
   //Also works to get all favorites
   app.get("/belmont/favorites/:profile", (req, res) => {
     favoritesController.findAllFavorites(req, res);

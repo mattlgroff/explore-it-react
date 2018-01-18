@@ -16,6 +16,4 @@ module.exports = app => {
     poiController.findOne(req, res, req.params.id);
   });
 
-
-
 }

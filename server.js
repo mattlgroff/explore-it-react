@@ -42,12 +42,15 @@ app.use(cors());
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 // Serve up static assets
-app.use(express.static("client/build"));
+app.use(express.static("grossmont-client/build"));
+app.use(express.static("belmont-client/build"));
 
 // Routes
 require("./routes/poiRoutes.js")(app);
 require("./routes/favoritesRoutes.js")(app);
+require("./routes/clientRoutes.js")(app);
 
 
 // Set up promises with mongoose

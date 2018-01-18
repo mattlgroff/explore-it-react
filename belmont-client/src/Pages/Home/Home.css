@@ -1,0 +1,29 @@
+body, html {
+  overflow: auto;
+}
+nav.navbar.transparent.navbar-expand {
+  background: rgba(0,0,0,1) !important;
+}
+.brandName {
+  font-family: 'Marko One', serif;
+  text-decoration: none;
+  color:#fff;
+  text-shadow: 1px 1px 1px #000;
+  display: inline-block;
+}
+.brandLogo {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow( -1px -1px 1px #000 );
+}
+.navbar-brand img {
+  display: inline-block;
+}
+.login {
+  margin: 5px 5px;
+  background-color: rgba(205,42,0,1);
+  border-color: #fff;
+}
+.navbar {
+  margin-bottom: 0px;
+}
