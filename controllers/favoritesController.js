@@ -21,11 +21,8 @@ let favoritesController = {
     console.log("Hit addOne controller option");
     console.log("Profile: " + profile);
     console.log("List: " + fave);
-
-
     db.Favorites
-      .findOrCreate({profile: profile})
-      .then(results => db.Favorites.update({profile: profile} , { $addToSet: { list: fave } }))
+      .findOneAndUpdate({profile: profile}, { $addToSet: { list: fave }}, {new: true, upsert: true})
       .then((dbModel) => res.json(dbModel))
       .catch(err => {
         console.error(err);
@@ -50,9 +47,8 @@ let favoritesController = {
     console.log("Hit Remove controller option");
     console.log("Profile: " + profile);
     console.log("List: " + fave);
-
     db.Favorites
-      .update({profile: profile} , { $pull: { list: fave } })
+      .findOneAndUpdate({profile: profile}, {$pull: { list: fave }}, {new: true})
       .then(dbModel => {
         console.log('dbModel', dbModel)
         res.json(dbModel)
