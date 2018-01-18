@@ -373,14 +373,303 @@ const poiSeed = [
   description: "All aboard the Belmont Express! This 4-car train carries passengers all around the Park and through the Midway!",
   img_url: "allaboard.jpg",
   location:"Belmont"
+},
+{
+  name: "Parking Lot 7",
+  category: "Parking",
+  lat:32.81398569,
+  long:-117.00543777,
+  description: "Parking Lot located in front of Grossmont College.",
+  img_url: "parkinglot7.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Bus Stop",
+  category: "Public Transit",
+  lat:32.81441904,
+  long:-117.0055039,
+  description: "Bus Stop located in front of Grossmont College.",
+  img_url: "busstop.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Griffin Gate",
+  category: "Classroom",
+  lat:32.81535695,
+  long:-117.00549296,
+  description: "Classroom near Parking Lot 7.",
+  img_url: "griffingate.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Bathroom @ Griffin Gate",
+  category: "Bathroom",
+  lat:32.81537344,
+  long:-117.00548541,
+  description: "Bathroom next to the Griffin Gate.",
+  img_url: "bathroomgriffingate.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Griffin Center",
+  category: "Classroom",
+  lat:32.815627636,
+  long:-117.005202279,
+  description: "Classrooms and food court.",
+  img_url: "griffincenter.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Java Market",
+  category: "Food and Drink",
+  lat:32.81597455,
+  long:-117.00549226,
+  description: "Coffee shop.",
+  img_url: "javamarket.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 55",
+  category: "Classroom",
+  lat:32.816254388,
+  long:-117.005135508,
+  description: "Building 55 Classrooms.",
+  img_url: "building55.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 53",
+  category: "Classroom",
+  lat:32.816675254,
+  long:-117.004523919,
+  description: "Building 53 Classrooms.",
+  img_url: "building53.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Bathroom @ Corner 54 ",
+  category: "Bathroom",
+  lat:32.816349641,
+  long:-117.00466192,
+  description: "Building 54 Bathrooms.",
+  img_url: "bathroom54.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 51",
+  category: "Classroom",
+  lat:32.817169051,
+  long:-117.00497049,
+  description: "Building 51 Classrooms.",
+  img_url: "building51.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Smoothie Bar",
+  category: "Food and Drink",
+  lat:32.816851823,
+  long:-117.004971315,
+  description: "Generic Smoothie Bar.",
+  img_url: "smoothiebar.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 54",
+  category: "Classroom",
+  lat:32.816204489,
+  long:-117.004476586,
+  description: "Building 54 Classrooms.",
+  img_url: "building54.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 52",
+  category: "Classroom",
+  lat:32.817147638,
+  long:-117.004491152,
+  description: "Building 52 Classrooms.",
+  img_url: "building52.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Parking Garage",
+  category: "Parking",
+  lat:32.816471629,
+  long:-117.003916976,
+  description: "Parking Garage.",
+  img_url: "parkinggarage.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Griffin Stadium",
+  category: "Sports",
+  lat:32.818282379,
+  long:-117.004650567,
+  description: "Griffin Stadium.",
+  img_url: "griffinstadium.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Bathrooms @ 51 ",
+  category: "Bathroom",
+  lat:32.81718392,
+  long:-117.00538748,
+  description: "Bathrooms at Building 51.",
+  img_url: "bathroom51.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Learning and Technology Resource Center",
+  category: "Classroom",
+  lat:32.816459817,
+  long:-117.006352966,
+  description: "Library and computer lab at Grossmont Colege.",
+  img_url: "learningandtechnologyresourcecenter.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 42",
+  category: "Classroom",
+  lat:32.8174018,
+  long:-117.005777347,
+  description: "Building 42 Classrooms.",
+  img_url: "building42.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 41",
+  category: "Classroom",
+  lat:32.817754169,
+  long:-117.006345122,
+  description: "Building 41 Classrooms.",
+  img_url: "building41.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Gymnasium",
+  category: "Sports",
+  lat:32.817363519,
+  long:-117.006402732,
+  description: "Gymnasium at Grossmont College.",
+  img_url: "gym.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 36",
+  category: "Classroom",
+  lat:32.817295255,
+  long:-117.007243551,
+  description: "Building 36 Classrooms.",
+  img_url: "building36.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Science Lab (Building 30) ",
+  category: "Classroom",
+  lat:32.816697886,
+  long:-117.0072592,
+  description: "Science Lab - Building 30 Classrooms.",
+  img_url: "sciencelab.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 34",
+  category: "Classroom",
+  lat:32.816696849,
+  long:-117.008083997,
+  description: "Building 34 Classrooms.",
+  img_url: "building34.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 31",
+  category: "Classroom",
+  lat:32.816057519,
+  long:-117.00720353,
+  description: "Building 31 Classrooms.",
+  img_url: "building31.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 24",
+  category: "Classroom",
+  lat:32.815580007,
+  long:-117.008006221,
+  description: "Building 24 Classrooms.",
+  img_url: "building24.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 27",
+  category: "Classroom",
+  lat:32.815625462,
+  long:-117.007632599,
+  description: "Building 27 Classrooms.",
+  img_url: "building27.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 25",
+  category: "Classroom",
+  lat:32.815389975,
+  long:-117.007628967,
+  description: "Building 25 Classrooms",
+  img_url: "building25.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 26",
+  category: "Classroom",
+  lat:32.815496705,
+  long:-117.007301708,
+  description: "Building 26 Classrooms.",
+  img_url: "building26.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Stagehouse Theatre",
+  category: "Classroom",
+  lat:32.815078796,
+  long:-117.007598282,
+  description: "Stagehouse classroom at Grossmont College.",
+  img_url: "stage.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Building 23",
+  category: "Classroom",
+  lat:32.81490431,
+  long:-117.008005676,
+  description: "Building 23 Classrooms.",
+  img_url: "building23.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Student Services and Administration",
+  category: "Classroom",
+  lat:32.815261881,
+  long:-117.006313849,
+  description: "All student services are here.",
+  img_url: "ssa.jpg",
+  location:"Grossmont"
+},
+{
+  name: "Bookstore",
+  category: "Shopping",
+  lat:32.81551546,
+  long:-117.005791941,
+  description: "Where to buy school supplies, books, and snacks.",
+  img_url: "bookstore.jpg",
+  location:"Grossmont"
 }
 ]
 
+//Belmont Seed
 db.POI
   .remove({})
   .then(() => db.POI.collection.insertMany(poiSeed))
   .then(data => {
-    console.log(data.insertedIds.length + " records inserted!");
+    console.log(data.insertedIds.length + " Belmont and Grossmont records inserted!");
     process.exit(0);
   })
   .catch(err => {
