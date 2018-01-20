@@ -9,8 +9,8 @@
     "grossmont-client": "node scripts/start-grossmont-client.js",
     "belmont-client": "node scripts/start-belmont-client.js",
     "start-both": "concurrently \"nodemon server.js\" \"npm run client\"",
-    "build-grossmont": "node scripts/build-grossmont.js",
-    "build-belmont": "node scripts/build-belmont.js",
+    "build-grossmont": "npm run scripts/build-grossmont.js",
+    "build-belmont": "cd belmont-client && yarn run build",
     "seed": "node scripts/seedDB.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd grossmont-client && yarn"
@@ -23,11 +23,17 @@
   },
   "dependencies": {
     "@okta/jwt-verifier": "0.0.11",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
+    "crypto": "^1.0.1",
     "express": "^4.15.4",
+    "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.8",
     "mongoose-findorcreate": "^2.0.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7"
   }
 }

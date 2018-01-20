@@ -4,10 +4,8 @@ const db = require("../models");
 // Defining methods for the favoritesController
 let favoritesController = {
   findAllFavorites: function(req, res) {
-
-    let honey = req.params.profile;
     db.Favorites
-      .findOne({profile: honey})
+      .findOne({email: req.params.email})
       .then(results => res.json({list: results.list}))
       .catch(err => {
         console.error(err);
@@ -15,14 +13,14 @@ let favoritesController = {
       });
   },
   addOne: function(req, res) {
-    console.log(req.body);
-    let profile = req.body.profile;
+    //console.log(req.body);
+    let email = req.body.email;
     let fave =  req.body.list;
     console.log("Hit addOne controller option");
-    console.log("Profile: " + profile);
+    console.log("email: " + email);
     console.log("List: " + fave);
     db.Favorites
-      .findOneAndUpdate({profile: profile}, { $addToSet: { list: fave }}, {new: true, upsert: true})
+      .findOneAndUpdate({email: email}, { $addToSet: { list: fave }}, {new: true, upsert: true})
       .then((dbModel) => res.json(dbModel))
       .catch(err => {
         console.error(err);
@@ -30,11 +28,11 @@ let favoritesController = {
       });
   },
   isFavorite: function(req, res){
-    let profile = req.body.profile;
+    let email = req.body.email;
     let list = req.body.list;
 
     db.Favorites
-      .find({profile: profile, list: list})
+      .find({email: email, list: list})
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         console.error(err);
@@ -42,13 +40,13 @@ let favoritesController = {
       });
   },
   remove: function(req , res){
-    let profile = req.body.profile;
+    let email = req.body.email;
     let fave =  req.body.list;
     console.log("Hit Remove controller option");
-    console.log("Profile: " + profile);
+    console.log("email: " + email);
     console.log("List: " + fave);
     db.Favorites
-      .findOneAndUpdate({profile: profile}, {$pull: { list: fave }}, {new: true})
+      .findOneAndUpdate({email: email}, {$pull: { list: fave }}, {new: true})
       .then(dbModel => {
         console.log('dbModel', dbModel)
         res.json(dbModel)

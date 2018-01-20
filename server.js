@@ -3,7 +3,7 @@ const OktaJwtVerifier = require('@okta/jwt-verifier');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: 'https://dev-892472.oktapreview.com/oauth2/default',
@@ -51,6 +51,7 @@ app.use(express.static("belmont-client/build"));
 require("./routes/poiRoutes.js")(app);
 require("./routes/favoritesRoutes.js")(app);
 require("./routes/clientRoutes.js")(app);
+require("./routes/authRoutes.js")(app);
 
 
 // Set up promises with mongoose

@@ -1,4 +1,4 @@
-let domain = `http://localhost:8080/${process.env.REACT_APP_DOMAIN}`;
+let domain = `http://localhost:3000/belmont`;
 
 if(process.env.REACT_APP_SERVER){
   console.log("Hosted domain!");

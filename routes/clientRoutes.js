@@ -11,4 +11,8 @@ module.exports = app => {
     res.sendFile(path.join(__dirname, "../belmont-client/build/index.html"));
   });
 
+  app.get('/belmont/*', (req, res) => {
+    res.sendFile(path.join(__dirname, "../belmont-client/build/index.html"));
+  });
+
 }
