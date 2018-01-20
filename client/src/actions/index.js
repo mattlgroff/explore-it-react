@@ -1,5 +1,5 @@
 import axios from 'axios';
-import cookie from 'react-cookie';
+import cookie from 'react-cookies';
 import { logoutUser } from './auth';
 import { STATIC_ERROR, FETCH_USER } from './types';
 export const API_URL = 'https://exploreit.herokuapp.com/';

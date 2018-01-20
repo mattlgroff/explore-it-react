@@ -6,31 +6,38 @@ class HeaderTemplate extends Component {
   renderLinks() {
     if (this.props.authenticated) {
       return [
-        <li key={`${1}header`}>
-          <Link to="belmont">Belmont Park</Link>
+        <li key={`${1}header`} className="nav-item">
+          <Link className="nav-link" to="/">Home</Link>
         </li>,
-        <li key={`${2}header`}>
-          <Link to="grossmont">Grossmont College</Link>
+        <li key={`${2}header`} className="nav-item">
+          <Link className="nav-link" to="belmont">Belmont Park</Link>
         </li>,
-        <li key={`${3}header`}>
-          <Link to="logout">Logout</Link>
+        <li key={`${3}header`} className="nav-item">
+          <Link className="nav-link" to="Grossmont">Grossmont College</Link>
+        </li>,
+        <li key={`${4}header`} className="nav-item">
+          <Link className="nav-link" to="logout">Logout</Link>
         </li>,
       ];
     } else {
       return [
         // Unauthenticated navigation
-        <li key={1}>
-          <Link to="belmont">Belmont Park</Link>
+
+        <li className="nav-item" key={1}>
+          <Link className="nav-link" to="/">Home</Link>
         </li>,
-        <li key={2}>
-          <Link to="grossmont">Grossmont College</Link>
+        <li className="nav-item" key={2}>
+          <Link className="nav-link" to="belmont">Belmont Park</Link>
         </li>,
-        <li key={3}>
-          <Link to="login">Login</Link>
+        <li className="nav-item" key={3}>
+          <Link className="nav-link" to="Grossmont">Grossmont College</Link>
         </li>,
-        <li key={4}>
-          <Link to="register">Register</Link>
+        <li className="nav-item" key={4}>
+          <Link className="nav-link" to="login">Login</Link>
         </li>,
+        <li className="nav-item" key={5}>
+          <Link className="nav-link" to="register">Register</Link>
+        </li>
       ];
     }
   }
@@ -38,20 +45,15 @@ class HeaderTemplate extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-default navbar-fixed-top">
-          <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-danger navbar-fixed-top">
+          <div className="container">  
             <div className="navbar-header">
-              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-              </button>
               <Link className="navbar-brand" to="/">{this.props.logo}</Link>
             </div>
 
-            <div className="collapse navbar-collapse" id="nav-collapse">
-              <ul className="nav navbar-nav navbar-right">
-                {this.renderLinks()}
+            <div className="collapse navbar-collapse justify-content-end" id="nav-collapse">
+              <ul className="nav navbar-nav">
+                {this.renderLinks()} 
               </ul>
             </div>
           </div>
