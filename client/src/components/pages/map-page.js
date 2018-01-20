@@ -19,7 +19,7 @@ class ExploreIt extends Component {
     //Replace these with Props if you can! Otherwise we can do two pages.
     this.state = {
       lat: 32.770844,
-      lng: -117.2527572,
+      long: -117.2527572,
       zoom: 18,
       open: true
     };
@@ -27,7 +27,7 @@ class ExploreIt extends Component {
 
 
   render() {
-    const position = [this.state.lat, this.state.lng];
+    const position = [this.state.lat, this.state.long];
 
     return (
       <Map zoomControl={false} center={position} zoom={this.state.zoom}>
