@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import cookie from 'react-cookies';
+
 
 class HeaderTemplate extends Component {
+
+
   renderLinks() {
     if (this.props.authenticated) {
+
+      const user = cookie.load('user');
+
       return [
         <li key={`${1}header`} className="nav-item">
           <Link className="nav-link" to="/">Home</Link>
@@ -12,14 +19,17 @@ class HeaderTemplate extends Component {
         <li key={`${2}header`} className="nav-item">
           <Link className="nav-link" to="belmont">Belmont Park</Link>
         </li>,
+
         <li key={`${3}header`} className="nav-item">
           <Link className="nav-link" to="Grossmont">Grossmont College</Link>
         </li>,
         <li key={`${4}header`} className="nav-item">
-          <Link className="nav-link" to="logout">Logout</Link>
-        </li>,
+          <Link className="nav-link" to="logout">Logout {user.email}</Link>
+        </li>
       ];
-    } else {
+      
+    }else {
+
       return [
         // Unauthenticated navigation
 
