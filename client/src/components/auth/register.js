@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { registerUser } from '../../actions/auth';
+import { Helmet } from 'react-helmet';
 
 const form = reduxForm({
   form: 'register',
@@ -70,6 +71,9 @@ class Register extends Component {
         //   </div>
         // </div>
       }
+        <Helmet>
+          <title>{this.props.route.name}</title>
+        </Helmet>
         <div className="row">
           <div className="col-md-12">
             <label>Email</label>

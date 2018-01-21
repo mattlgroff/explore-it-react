@@ -16,10 +16,10 @@ import Logout from './components/auth/logout';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={HomePage} />
-    <Route path="register" component={Register} />
-    <Route path="login" component={Login} />
-    <Route path="logout" component={Logout} />
+    <IndexRoute component={HomePage} name="Home - ExploreIt"/>
+    <Route path="register" component={Register} name="Register - ExploreIt"/>
+    <Route path="login" component={Login} name="Login - ExploreIt"/>
+    <Route path="logout" component={Logout} name="Logout - ExploreIt"/>
 
     <Route 
       path="belmont" 

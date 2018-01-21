@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
 import { loginUser } from '../../actions/auth';
+import { Helmet } from 'react-helmet';
 
 const form = reduxForm({
   form: 'login',
@@ -28,6 +29,9 @@ class Login extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>{this.props.route.name}</title>
+        </Helmet>
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           {this.renderAlert()}
           <div>
