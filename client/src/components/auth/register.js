@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { registerUser } from '../../actions/auth';
+import { Helmet } from 'react-helmet';
 
 const form = reduxForm({
   form: 'register',
@@ -17,14 +18,6 @@ const renderField = field => (
 
 function validate(formProps) {
   const errors = {};
-
-  // if (!formProps.firstName) {
-  //   errors.firstName = 'Please enter a first name';
-  // }
-
-  // if (!formProps.lastName) {
-  //   errors.lastName = 'Please enter a last name';
-  // }
 
   if (!formProps.email) {
     errors.email = 'Please enter an email';
@@ -56,24 +49,25 @@ class Register extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className="container">
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           {this.renderAlert()}
+          <Helmet>
+            <title>{this.props.route.name}</title>
+          </Helmet>
           <div className="row">
             <div className="col-md-12">
               <label>Email</label>
               <Field name="email" className="form-control" component={renderField} type="text" autoComplete="username" />
             </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              <label>Password</label>
-              <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
+            <div className="row">
+              <div className="col-md-12">
+                <label>Password</label>
+                <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
+              </div>
             </div>
+            <button type="submit" className="btn btn-primary">Register</button>
           </div>
-          <button type="submit" className="btn btn-primary">Register</button>
         </form>
-      </div>
     );
   }
 }

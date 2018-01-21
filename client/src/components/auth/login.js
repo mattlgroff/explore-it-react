@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { loginUser } from '../../actions/auth';
+import { Helmet } from 'react-helmet';
 
 const form = reduxForm({
   form: 'login',
@@ -26,19 +27,24 @@ class Login extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className="container">
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {this.renderAlert()}
-          <div>
-            <label>Email</label>
-            <Field name="email" className="form-control" component="input" type="text" autoComplete="username" />
-          </div>
-          <div>
-            <label>Password</label>
-            <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
-          </div>
-          <button type="submit" className="btn btn-primary">Login</button>
-        </form>
+      <div>
+        <Helmet>
+          <title>{this.props.route.name}</title>
+        </Helmet>
+        <div className="container">
+          <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            {this.renderAlert()}
+            <div>
+              <label>Email</label>
+              <Field name="email" className="form-control" component="input" type="text" autoComplete="username" />
+            </div>
+            <div>
+              <label>Password</label>
+              <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
+            </div>
+            <button type="submit" className="btn btn-primary">Login</button>
+          </form>
+        </div>
       </div>
     );
   }

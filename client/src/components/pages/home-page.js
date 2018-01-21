@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
+
 class HomePage extends Component {
   render() {
     return (
     <div className="container">
         <Helmet>
-          <title>Explore Your World</title>
+          <title>{this.props.route.name}</title>
         </Helmet>
 		<div className="card">
 			<img className="card-img-top" src="https://exploreit.herokuapp.com/adrenzone.jpg" alt="Card image cap" />
