@@ -27,7 +27,7 @@ class HeaderTemplate extends Component {
           <Link className="nav-link" to="logout">Logout {user.email}</Link>
         </li>
       ];
-      
+
     }else {
 
       return [
@@ -56,16 +56,23 @@ class HeaderTemplate extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-danger navbar-fixed-top">
-          <div className="container">  
+          <div className="container">
+
             <div className="navbar-header">
               <Link className="navbar-brand" to="/">{this.props.logo}</Link>
             </div>
 
+            <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#nav-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon" />
+            </button>
+
             <div className="collapse navbar-collapse justify-content-end" id="nav-collapse">
-              <ul className="nav navbar-nav">
+              <ul className="navbar-nav">
                 {this.renderLinks()} 
               </ul>
             </div>
+
+
           </div>
         </nav>
       </div>
