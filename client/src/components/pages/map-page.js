@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import {Popup, Marker, Map, TileLayer} from 'react-leaflet';
 import {Icon} from 'leaflet';
-import {Button, Image} from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 import axiosHelper from '../../api/axios.js';
 import cookie from 'react-cookies';
 import "./map.css";
@@ -98,8 +98,7 @@ class ExploreIt extends Component {
           {
           this.state.pois.forEach(poi => {
             if(poi.location !== this.props.route.location){
-              // console.log("POI Location did not match route location.");
-              // console.log(poi.location, this.props.route.location);
+              //console.log(`POI Location Skipped: ${poi.location}`)
               //Ignore locations not being used by this map.
             }
             else{
@@ -149,11 +148,14 @@ class ExploreIt extends Component {
                 break;
               }
 
-              return (
+              let marker = 
                 <Marker key={poi._id} icon={icon_source} position={[poi.lat,poi.long]} onClick={this.onClick}>
                   {this.renderPopups(poi.name, img_src, poi.lat, poi.long, poi._id)}
-                </Marker>
-              );
+                </Marker>;
+
+              console.log(marker);
+
+              return (marker);
             }//End Else.
           }
         )}
