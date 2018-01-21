@@ -12,6 +12,8 @@ import attractionIcon from '../../assets/icons/attraction.svg';
 import footballIcon from '../../assets/icons/football.svg';
 import waterIcon from '../../assets/icons/fountain.svg';
 import parkingIcon from '../../assets/icons/parking.svg';
+import classroomIcon from '../../assets/icons/classroom.svg';
+import publictransitIcon from '../../assets/icons/publictransit.svg';
 
 class ExploreIt extends Component {
   constructor() {
@@ -46,10 +48,7 @@ class ExploreIt extends Component {
   };
 
   renderPopups(name, img_src, lat, long, id) {
-    if (this.props.authenticated) {
-
-      const user = cookie.load('user');
-
+    if (this.isAuthenticated) {
       return (
         <Popup minWidth={90}>
           <div className='text-center'>
@@ -115,6 +114,14 @@ class ExploreIt extends Component {
 
                 case 'Bathroom':
                 icon_source = new Icon({iconUrl: bathroomIcon, iconSize: [32,32]});
+                break;
+
+                case 'Classroom':
+                icon_source = new Icon({iconUrl: classroomIcon, iconSize: [32,32]});
+                break;
+
+                case 'Public Transit':
+                icon_source = new Icon({iconUrl: publictransitIcon, iconSize: [32,32]});
                 break;
 
                 case 'Food and Drink':
