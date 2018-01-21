@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 // Serve up static assets
 app.use(express.static("client/build"));
+app.use(express.static("photos"));
 
 // Routes
 require("./routes/poiRoutes.js")(app);

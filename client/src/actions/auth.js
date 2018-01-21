@@ -2,7 +2,7 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import cookie from 'react-cookies';
 import { API_URL, CLIENT_ROOT_URL, errorHandler } from './index';
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FORGOT_PASSWORD_REQUEST, RESET_PASSWORD_REQUEST, PROTECTED_TEST } from './types';
+import { AUTH_USER, AUTH_ERROR, UNAUTH_USER} from './types';
 
 //= ===============================
 // Authentication actions
@@ -18,7 +18,7 @@ export function loginUser({ email, password }) {
       cookie.save('token', response.data.token, { path: '/' });
       cookie.save('user', response.data.user, { path: '/' });
       dispatch({ type: AUTH_USER });
-      window.location.href = `${CLIENT_ROOT_URL}`;
+      browserHistory.goBack();
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);
@@ -33,7 +33,7 @@ export function registerUser({ email, password }) {
       cookie.save('token', response.data.token, { path: '/' });
       cookie.save('user', response.data.user, { path: '/' });
       dispatch({ type: AUTH_USER });
-      window.location.href = `${CLIENT_ROOT_URL}`;
+      browserHistory.goBack();
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);
@@ -47,7 +47,7 @@ export function logoutUser(error) {
     cookie.remove('token', { path: '/' });
     cookie.remove('user', { path: '/' });
 
-    window.location.href = `${CLIENT_ROOT_URL}`;
+    browserHistory.goBack();
   };
 }
 

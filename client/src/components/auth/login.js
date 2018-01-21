@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { Link } from 'react-router';
 import { loginUser } from '../../actions/auth';
 import { Helmet } from 'react-helmet';
 
@@ -32,18 +31,20 @@ class Login extends Component {
         <Helmet>
           <title>{this.props.route.name}</title>
         </Helmet>
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {this.renderAlert()}
-          <div>
-            <label>Email</label>
-            <Field name="email" className="form-control" component="input" type="text" autoComplete="username" />
-          </div>
-          <div>
-            <label>Password</label>
-            <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
-          </div>
-          <button type="submit" className="btn btn-primary">Login</button>
-        </form>
+        <div className="container">
+          <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            {this.renderAlert()}
+            <div>
+              <label>Email</label>
+              <Field name="email" className="form-control" component="input" type="text" autoComplete="username" />
+            </div>
+            <div>
+              <label>Password</label>
+              <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
+            </div>
+            <button type="submit" className="btn btn-primary">Login</button>
+          </form>
+        </div>
       </div>
     );
   }
