@@ -18,7 +18,7 @@ export function loginUser({ email, password }) {
       cookie.save('token', response.data.token, { path: '/' });
       cookie.save('user', response.data.user, { path: '/' });
       dispatch({ type: AUTH_USER });
-      browserHistory.push('/');
+      browserHistory.goBack();
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);
@@ -33,7 +33,7 @@ export function registerUser({ email, password }) {
       cookie.save('token', response.data.token, { path: '/' });
       cookie.save('user', response.data.user, { path: '/' });
       dispatch({ type: AUTH_USER });
-      browserHistory.push('/');
+      browserHistory.goBack();
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);
@@ -47,7 +47,7 @@ export function logoutUser(error) {
     cookie.remove('token', { path: '/' });
     cookie.remove('user', { path: '/' });
 
-    browserHistory.push('/');
+    browserHistory.goBack();
   };
 }
 
