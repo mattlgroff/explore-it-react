@@ -21,7 +21,7 @@ class HeaderTemplate extends Component {
         </li>,
 
         <li key={`${3}header`} className="nav-item">
-          <Link className="nav-link" to="Grossmont">Grossmont College</Link>
+          <Link className="nav-link" to="grossmont">Grossmont College</Link>
         </li>,
         <li key={`${4}header`} className="nav-item">
           <Link className="nav-link" to="logout">Logout {user.email}</Link>
@@ -40,7 +40,7 @@ class HeaderTemplate extends Component {
           <Link className="nav-link" to="belmont">Belmont Park</Link>
         </li>,
         <li className="nav-item" key={3}>
-          <Link className="nav-link" to="Grossmont">Grossmont College</Link>
+          <Link className="nav-link" to="grossmont">Grossmont College</Link>
         </li>,
         <li className="nav-item" key={4}>
           <Link className="nav-link" to="login">Login</Link>
