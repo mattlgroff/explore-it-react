@@ -16,6 +16,9 @@ export default function (state = INITIAL_STATE, action) {
       return { ...state, message: action.payload.message };
     case PROTECTED_TEST:
       return { ...state, content: action.payload.message };
+
+    default:
+    break;
   }
 
   return state;
