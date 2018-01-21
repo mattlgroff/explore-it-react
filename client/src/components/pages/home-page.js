@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class HomePage extends Component {
   render() {
     return (
-      <div>Hello world! This is the home page route.</div>
+      <div className="container">
+      Hello world! This is the home page route.
+      </div>
     );
   }
 }
