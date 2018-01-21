@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 class HomePage extends Component {
   render() {
     return (
-    <div>
+    <div className="container">
         <Helmet>
           <title>Explore Your World</title>
         </Helmet>
@@ -25,7 +25,6 @@ class HomePage extends Component {
 			</div>
 		</div>
 	</div>
-
     );
   }
 }

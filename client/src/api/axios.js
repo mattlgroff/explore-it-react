@@ -1,42 +1,36 @@
-let domain = `http://localhost:8080/${process.env.REACT_APP_DOMAIN}`;
-
-if(process.env.REACT_APP_SERVER){
-  console.log("Hosted domain!");
-  domain = `${process.env.REACT_APP_SERVER}${process.env.REACT_APP_DOMAIN}`;
-}
-
 const axios = require('axios');
-console.log('this is domain',domain)
+// const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://exploreit.herokuapp.com';
 
 const helpers = {
   getAllPoi: function(){
-    return axios.get(domain + '/poi/all');
+    return axios.get(BASE_URL + '/poi/all');
   },
   getAllFavoritePois: function(favoritePoisArray){
-    console.log('getallfavoPOIOBJ Sent TO', domain + '/poi/findFavorites', favoritePoisArray)
-    return axios.post(domain + '/poi/findFavorites', {listArr: favoritePoisArray});
+    console.log('getallfavoPOIOBJ Sent TO', BASE_URL + '/poi/findFavorites', favoritePoisArray)
+    return axios.post(BASE_URL + '/poi/findFavorites', {listArr: favoritePoisArray});
   },
   getOnePoi: function(id){
-    return axios.get(domain + '/poi/' + id);
+    return axios.get(BASE_URL + '/poi/' + id);
   },
   addToFavorites: function(profile, list){
-    return axios.post(domain + '/favorites', {
+    return axios.post(BASE_URL + '/favorites', {
       profile: profile,
       list: list
     });
   },
   getUserFavoriteList: function(profile){
     console.log("I am looking here:", profile);
-    return axios.get(domain + '/favorites/' + profile);
+    return axios.get(BASE_URL + '/favorites/' + profile);
   },
   removeFavorite: function(profile, list){
-    return axios.post(domain + '/remove-favorite', {
+    return axios.post(BASE_URL + '/remove-favorite', {
       profile: profile,
       list: list
     });
   },
   isFavorite: function(profile, list){
-    return axios.get(domain + '/is-favorite', {
+    return axios.get(BASE_URL + '/is-favorite', {
       profile: profile,
       list: list
     });

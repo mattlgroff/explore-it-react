@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { Link } from 'react-router';
 import { loginUser } from '../../actions/auth';
 
 const form = reduxForm({
@@ -27,7 +26,7 @@ class Login extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div>
+      <div className="container">
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           {this.renderAlert()}
           <div>
