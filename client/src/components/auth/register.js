@@ -68,7 +68,7 @@ class Register extends Component {
           <div className="row">
             <div className="col-md-12">
               <label>Password</label>
-              <Field name="password" className="form-control" component={renderField} type="password" autoComplete="current-password" />
+              <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
             </div>
           </div>
           <button type="submit" className="btn btn-primary">Register</button>
