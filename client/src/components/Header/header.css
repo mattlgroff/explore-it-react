@@ -1,0 +1,30 @@
+body, html {
+  overflow: auto;
+}
+nav.navbar.navbar-expand-lg.navbar-dark {
+  background: rgba(205,42,0,1) !important;
+}
+.brandName {
+  font-family: 'Marko One', serif;
+  text-decoration: none;
+  color:#fff;
+  text-shadow: 1px 1px 1px #000;
+  display: inline-block;
+}
+.brandLogo {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow( -1px -1px 1px #000 );
+  margin-right: 5px;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,.9);
+  text-shadow: 1px 1px 1px #000;
+}
+.navbar {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.userAvatar {
+  width: 100px;
+  background-color: #fff;
+}

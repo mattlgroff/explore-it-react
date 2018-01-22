@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import cookie from 'react-cookies';
+import './header.css'
 
 
 class HeaderTemplate extends Component {
@@ -24,7 +25,9 @@ class HeaderTemplate extends Component {
           <Link className="nav-link" to="grossmont">Grossmont College</Link>
         </li>,
         <li key={`${4}header`} className="nav-item">
+
           <Link className="nav-link" to="logout">Logout {user.email}</Link>
+          <div className='rounded-circle userAvatar'></div>
         </li>
       ];
 
@@ -55,11 +58,11 @@ class HeaderTemplate extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-danger navbar-fixed-top">
-          <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-dark navbar-fixed-top">
+          <div className="container-fluid">
 
             <div className="navbar-header">
-              <Link className="navbar-brand" to="/">{this.props.logo}</Link>
+              <Link className="navbar-brand brandName" to="/">{this.props.logo}</Link>
             </div>
 
             <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#nav-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +71,7 @@ class HeaderTemplate extends Component {
 
             <div className="collapse navbar-collapse justify-content-end" id="nav-collapse">
               <ul className="navbar-nav">
-                {this.renderLinks()} 
+                {this.renderLinks()}
               </ul>
             </div>
 
