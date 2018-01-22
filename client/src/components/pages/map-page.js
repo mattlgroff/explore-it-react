@@ -61,15 +61,15 @@ class ExploreIt extends Component {
 
   isAuthenticated = () => {
     const user_token = cookie.load('user');
-
+    console.log('user_token', user_token)
     const isAuth = (user_token ? true : false);
     if(isAuth){
       this.setState({
-        user:user_token
+        user:user_token,
+        isAuthenticated: true
       });
       this.getUserFavoriteList(user_token)
     }
-    return isAuth;
   };
 
   getUserFavoriteList = (user) => {
@@ -89,6 +89,7 @@ class ExploreIt extends Component {
       this.setState({
         userFaveList: results.data.list
       })
+      this.getAllFavPoi(results.data.list)
     })
     .catch(err => console.error(err));
   };
@@ -98,17 +99,16 @@ class ExploreIt extends Component {
     let poiID = e.target.id
     axiosHelper.addToFavorites(userID, poiID)
     .then(results => {
-      // call getUserFavoriteList
       this.setState({
         userFaveList: results.data.list
       })
-      // this.props.switchPanel()
+      this.getAllFavPoi(results.data.list)
+      this.switchPanel()
     })
     .catch(err => console.error(err));
   };
 
   showPanel = (e) => {
-    e.preventDefault();
     this.setState({
       displayPanel: (this.state.displayPanel ? false : true)
     });
@@ -124,16 +124,77 @@ class ExploreIt extends Component {
     return this.state.showFavorites ? this.state.favPois : this.state.pois;
   };
 
-  renderPopups(name, img_src, lat, long, id) {
+  renderMarkers = (poi) => {
+    if(poi.location === this.props.route.location){
+      let img_src = `${process.env.REACT_APP_SERVER}${poi.img_url}`;
+      let icon_source;
+
+      switch(poi.category){
+        case 'Attraction':
+        icon_source = new Icon({iconUrl: attractionIcon, iconSize: [32,32]});
+        break;
+
+        case 'Bathroom':
+        icon_source = new Icon({iconUrl: bathroomIcon, iconSize: [32,32]});
+        break;
+
+        case 'Classroom':
+        icon_source = new Icon({iconUrl: classroomIcon, iconSize: [32,32]});
+        break;
+
+        case 'Public Transit':
+        icon_source = new Icon({iconUrl: publictransitIcon, iconSize: [32,32]});
+        break;
+
+        case 'Food and Drink':
+        icon_source = new Icon({iconUrl: foodIcon, iconSize: [32,32]});
+        break;
+
+        case 'Shopping':
+        icon_source = new Icon({iconUrl: shoppingIcon, iconSize: [32,32]});
+        break;
+
+        case 'Sports':
+        icon_source = new Icon({iconUrl: footballIcon, iconSize: [32,32]});
+        break;
+
+        case 'Drinking Fountain':
+        icon_source = new Icon({iconUrl: waterIcon, iconSize: [32,32]});
+        break;
+
+        case 'Parking':
+        icon_source = new Icon({iconUrl: parkingIcon, iconSize: [32,32]});
+        break;
+
+        default:
+        console.error(`Something went wrong. No category ${poi.category} found.`);
+        break;
+      }
+      return  (
+        <Marker key={poi._id} icon={icon_source} position={[poi.lat,poi.long]} onClick={this.onClick}>
+          {this.renderPopups(poi.name, img_src, poi.lat, poi.long, poi._id)}
+        </Marker>
+      )
+    }
+  }
+  renderPopups = (name, img_src, lat, long, id) => {
     if (this.isAuthenticated) {
       return (
         <Popup minWidth={90}>
           <div className='text-center'>
             <h4>{name}</h4>
-            <Image className='img thumbnail' src={img_src} width='200px'></Image>
+            <Image className='img img-thumbnail img-responsive' src={img_src} width='200px'></Image>
             <br></br>
-            <button className='btn' id={id} onClick={this.addToFavorites}>Save to Favorites</button>
-            <button className='btn' id={id} onClick={this.removeFavorite}>Remove Favorite</button>
+              {
+                (this.state.userFaveList.indexOf(id) === -1) && (
+                  <button className='btn btn-dark' id={id} onClick={this.addToFavorites}>Save to Favorites</button>
+                )
+              }
+              {
+                (this.state.userFaveList.indexOf(id) !== -1) && (
+                  <button className='btn btn-dark' id={id} onClick={this.removeFavorite}>Remove Favorite</button>
+                )
+              }
             <br></br>
             <a target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
           </div>
@@ -161,9 +222,6 @@ class ExploreIt extends Component {
 
   render() {
     const position = [this.props.route.lat, this.props.route.long];
-
-    const testIcon = new Icon({iconUrl: attractionIcon, iconSize: [32,32]});
-
     return (
       <div>
         <Helmet>
@@ -175,70 +233,13 @@ class ExploreIt extends Component {
             url='https://api.mapbox.com/styles/v1/mattlgroff/cjcjws0xj18ea2sptc8iafsu5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF0dGxncm9mZiIsImEiOiJjamMzczFpNTExNWNmMnhwZjFvNGlpdnR4In0.y1gUOwBdSx6lhv_7TcmKJA'
             />
           {
-            this.state.pois.map(poi => {
-              if(poi.location !== this.props.route.location){
-                //console.log(`POI Location Skipped: ${poi.location}`)
-                //Ignore locations not being used by this map.
-              }
-              else{
-
-                let img_src = `${process.env.REACT_APP_SERVER}${poi.img_url}`;
-                let icon_source;
-
-                switch(poi.category){
-                  case 'Attraction':
-                  icon_source = new Icon({iconUrl: attractionIcon, iconSize: [32,32]});
-                  break;
-
-                  case 'Bathroom':
-                  icon_source = new Icon({iconUrl: bathroomIcon, iconSize: [32,32]});
-                  break;
-
-                  case 'Classroom':
-                  icon_source = new Icon({iconUrl: classroomIcon, iconSize: [32,32]});
-                  break;
-
-                  case 'Public Transit':
-                  icon_source = new Icon({iconUrl: publictransitIcon, iconSize: [32,32]});
-                  break;
-
-                  case 'Food and Drink':
-                  icon_source = new Icon({iconUrl: foodIcon, iconSize: [32,32]});
-                  break;
-
-                  case 'Shopping':
-                  icon_source = new Icon({iconUrl: shoppingIcon, iconSize: [32,32]});
-                  break;
-
-                  case 'Sports':
-                  icon_source = new Icon({iconUrl: footballIcon, iconSize: [32,32]});
-                  break;
-
-                  case 'Drinking Fountain':
-                  icon_source = new Icon({iconUrl: waterIcon, iconSize: [32,32]});
-                  break;
-
-                  case 'Parking':
-                  icon_source = new Icon({iconUrl: parkingIcon, iconSize: [32,32]});
-                  break;
-
-                  default:
-                  console.error(`Something went wrong. No category ${poi.category} found.`);
-                  break;
-                }
-
-                let marker =
-                <Marker key={poi._id} icon={icon_source} position={[poi.lat,poi.long]} onClick={this.onClick}>
-                  {this.renderPopups(poi.name, img_src, poi.lat, poi.long, poi._id)}
-                </Marker>;
-
-                return (marker);
-              }//End Else.
-            }
-          )}
+            this.displayPois().map(this.renderMarkers)
+          }
         </Map>
-        <POIPanel pois={this.state.favPois} location={this.props.route.location}/>
-        <NavbarBottom isAuthenticated={this.isAuthenticated} showPanel={this.showPanel} displayPanel={this.state.displayPanel} switchPanel={this.switchPanel}/>
+        {
+          (this.state.displayPanel) ? <POIPanel showFavorites={this.state.showFavorites} pois={this.displayPois()} location={this.props.route.location}/> :null
+        }
+        <NavbarBottom isAuthenticated={this.state.isAuthenticated} showPanel={this.showPanel} displayPanel={this.state.displayPanel} switchPanel={this.switchPanel}/>
       </div>
     );
   }
