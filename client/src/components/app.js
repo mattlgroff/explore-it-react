@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import HeaderTemplate from './template/header';
+import Header from './Header/header';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <HeaderTemplate logo="Explore It" />
+        <Header logo="Explore It" />
 
         <div>
           {this.props.children}
