@@ -6,6 +6,7 @@ import axiosHelper from '../../api/axios.js';
 import cookie from 'react-cookies';
 import { Helmet } from 'react-helmet';
 import "./map.css";
+import "./animate.css"
 import POIPanel from '../POIPanel'
 import NavbarBottom from '../NavbarBottom'
 import foodIcon from '../../assets/icons/foodanddrink.svg';
@@ -109,12 +110,14 @@ class ExploreIt extends Component {
   };
 
   showPanel = (e) => {
+    e.preventDefault();
     this.setState({
       displayPanel: (this.state.displayPanel ? false : true)
     });
   };
 
-  switchPanel = () => {
+  switchPanel = (e) => {
+    e.preventDefault();
     this.setState({
       showFavorites: (this.state.showFavorites ? false : true)
     })
@@ -124,7 +127,7 @@ class ExploreIt extends Component {
     return this.state.showFavorites ? this.state.favPois : this.state.pois;
   };
 
-  renderMarkers = (poi) => {
+  renderMarkers = (poi, index) => {
     if(poi.location === this.props.route.location){
       let img_src = `${process.env.REACT_APP_SERVER}${poi.img_url}`;
       let icon_source;
@@ -171,7 +174,7 @@ class ExploreIt extends Component {
         break;
       }
       return  (
-        <Marker key={poi._id} icon={icon_source} position={[poi.lat,poi.long]} onClick={this.onClick}>
+        <Marker className='animated fadeInUp' key={poi._id} icon={icon_source} position={[poi.lat,poi.long]} onClick={this.onClick}>
           {this.renderPopups(poi.name, img_src, poi.lat, poi.long, poi._id)}
         </Marker>
       )
@@ -181,22 +184,22 @@ class ExploreIt extends Component {
     if (this.isAuthenticated) {
       return (
         <Popup minWidth={90}>
-          <div className='text-center'>
-            <h4>{name}</h4>
-            <Image className='img img-thumbnail img-responsive' src={img_src} width='200px'></Image>
+          <div className='text-center animated fadeIn'>
+            <h4 className='animated fadeIn'>{name}</h4>
+            <Image className='img img-thumbnail img-responsive animated fadeIn delay-02s' src={img_src} width='200px'></Image>
             <br></br>
               {
                 (this.state.userFaveList.indexOf(id) === -1) && (
-                  <button className='btn btn-dark' id={id} onClick={this.addToFavorites}>Save to Favorites</button>
+                  <button className='btn btn-dark animated fadeInUp delay-03s' id={id} onClick={this.addToFavorites}>Save to Favorites</button>
                 )
               }
               {
                 (this.state.userFaveList.indexOf(id) !== -1) && (
-                  <button className='btn btn-dark' id={id} onClick={this.removeFavorite}>Remove Favorite</button>
+                  <button className='btn btn-dark animated fadeInUp delay-03s' id={id} onClick={this.removeFavorite}>Remove Favorite</button>
                 )
               }
             <br></br>
-            <a target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
+            <a className='animated fadeInUp delay-04s' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
           </div>
         </Popup>
       );
@@ -206,13 +209,13 @@ class ExploreIt extends Component {
       return (
         // Unauthenticated navigation
         <Popup minWidth={90}>
-          <div className='text-center'>
-            <h4>{name}</h4>
-            <Image className='img thumbnail' src={img_src} width='200px'></Image>
+          <div className='text-center animated fadeIn'>
+            <h4 className='animated fadeIn delay-01s'>{name}</h4>
+            <Image className='img thumbnail animated fadeIn delay-02s' src={img_src} width='200px'></Image>
             <br></br>
             Please Login to add to Favorites.
             <br></br>
-            <a target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
+            <a className='animated fadeInUp delay-03s' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
           </div>
         </Popup>
       );
@@ -227,7 +230,7 @@ class ExploreIt extends Component {
         <Helmet>
           <title>{this.props.route.name}</title>
         </Helmet>
-        <Map zoomControl={false} center={position} zoom={this.props.route.zoom}>
+        <Map className='animated fadeIn delay-01s' zoomControl={false} center={position} zoom={this.props.route.zoom}>
           <TileLayer
             attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>'
             url='https://api.mapbox.com/styles/v1/mattlgroff/cjcjws0xj18ea2sptc8iafsu5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF0dGxncm9mZiIsImEiOiJjamMzczFpNTExNWNmMnhwZjFvNGlpdnR4In0.y1gUOwBdSx6lhv_7TcmKJA'
@@ -237,9 +240,9 @@ class ExploreIt extends Component {
           }
         </Map>
         {
-          (this.state.displayPanel) ? <POIPanel showFavorites={this.state.showFavorites} pois={this.displayPois()} location={this.props.route.location}/> :null
+          (this.state.displayPanel) ? <POIPanel className='animated fadeIn delay-02s' showFavorites={this.state.showFavorites} pois={this.displayPois()} location={this.props.route.location}/> :null
         }
-        <NavbarBottom isAuthenticated={this.state.isAuthenticated} showPanel={this.showPanel} displayPanel={this.state.displayPanel} switchPanel={this.switchPanel}/>
+        <NavbarBottom showFavorites={this.state.showFavorites} isAuthenticated={this.state.isAuthenticated} showPanel={this.showPanel} displayPanel={this.state.displayPanel} switchPanel={this.switchPanel}/>
       </div>
     );
   }

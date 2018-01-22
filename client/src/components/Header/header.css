@@ -2,7 +2,7 @@ body, html {
   overflow: auto;
 }
 nav.navbar.navbar-expand-lg.navbar-dark {
-  background: rgba(205,42,0,1) !important;
+  background-color: rgba(205,42,0,0.9);
 }
 .brandName {
   font-family: 'Marko One', serif;
@@ -27,4 +27,9 @@ nav.navbar.navbar-expand-lg.navbar-dark {
 .userAvatar {
   width: 100px;
   background-color: #fff;
+}
+.btn-dark:not(:disabled):not(.disabled).active,.show>.btn-dark.dropdown-toggle {
+  color: #fff;
+  background-color: rgba(205,42,0,0.8);
+  border-color: #171a1d;
 }
