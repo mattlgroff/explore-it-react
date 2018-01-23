@@ -20,15 +20,18 @@ import classroomIcon from '../../assets/icons/classroom.svg';
 import publictransitIcon from '../../assets/icons/publictransit.svg';
 
 class ExploreIt extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
       user: {},
       showFavorites: false,
       displayPanel: false,
       pois: [],
       userFaveList: [],
-      favPois: []
+      favPois: [],
+      lat: props.route.lat,
+      long: props.route.long
     }
   };
 
@@ -58,7 +61,7 @@ class ExploreIt extends Component {
       console.log('favoritePois', this.state.favPois)
     })
     .catch(err => console.error(err));
-  }
+  };
 
   isAuthenticated = () => {
     const user_token = cookie.load('user');
@@ -122,6 +125,22 @@ class ExploreIt extends Component {
     this.setState({
       showFavorites: (this.state.showFavorites ? false : true)
     })
+  };
+
+  locate = () => {
+    if ("geolocation" in navigator) {
+      /* geolocation is available */
+      navigator.geolocation.watchPosition(position => {
+        console.log("Moved map to different location");
+        this.setState({
+          lat: position.coords.latitude,
+          long: position.coords.longitude
+        })
+      });
+    } else {
+      console.log("No geolocation");
+      /* geolocation IS NOT available */
+    }
   };
 
   displayPois = () => {
@@ -229,7 +248,6 @@ class ExploreIt extends Component {
 
 
   render() {
-    const position = [this.props.route.lat, this.props.route.long];
     return (
       <div>
         <Helmet>
@@ -237,7 +255,7 @@ class ExploreIt extends Component {
         </Helmet>
         <div>
           <div>
-            <Map className='animated fadeIn delay-01s' zoomControl={false} center={position} zoom={this.props.route.zoom}>
+            <Map className='animated fadeIn delay-01s' zoomControl={false} center={[this.state.lat,this.state.long]} zoom={this.props.route.zoom}>
               <TileLayer
                 attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>'
                 url='https://api.mapbox.com/styles/v1/mattlgroff/cjcjws0xj18ea2sptc8iafsu5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF0dGxncm9mZiIsImEiOiJjamMzczFpNTExNWNmMnhwZjFvNGlpdnR4In0.y1gUOwBdSx6lhv_7TcmKJA'
