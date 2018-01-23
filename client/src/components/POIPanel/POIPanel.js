@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import { Link } from 'react-router';
 import './index.css';
 import '../pages/animate.css'
 
@@ -11,7 +12,9 @@ class POIPanel extends Component {
     if(poi.location === this.props.location){
       let img_src = `${process.env.REACT_APP_SERVER}${poi.img_url}`;
       return (
-        <li key={poi._id} className={`item animated fadeInUp delay-0${index}s`} id={poi._id} onClick={this.props.poiOnClick}><img alt={poi.name} className='img-responsive rounded-circle poiImg' src={img_src}></img>{poi.name}</li>
+        <Link className="poiLink" key={poi._id} to={`/detailed/${poi._id}`}>
+          <li key={poi._id} className={`item animated fadeInUp delay-0${index}s`} id={poi._id} onClick={this.props.poiOnClick}><img alt={poi.name} className='img-responsive rounded-circle poiImg' src={img_src}></img>{poi.name}</li>
+        </Link>
       );
     }
   };
