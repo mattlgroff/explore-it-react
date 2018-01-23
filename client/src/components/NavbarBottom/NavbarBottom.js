@@ -4,24 +4,36 @@ import './NavbarBottom.css'
 const NavbarBottom = (props) => {
   return (
     <ul className="nav nav-pills nav-fill animated fadeIn delay-02s">
+      <li className="nav-item">
+        <img alt='list' className="nav-link gps_btn map_btn" src='https://i.imgur.com/5Qb7HUS.png' onClick={props.locate}/>
+      </li>
       {
         (!props.isAuthenticated) && (
           <li className="nav-item">
-            <a className={(props.displayPanel) ? "nav-link btn-dark active":"nav-link btn-dark"} href='' onClick={props.showPanel}>Show List</a>
+            {
+              (props.displayPanel) ? <img alt='list' className="nav-link list_btn map_btn active" src='https://i.imgur.com/Pmztb2W.png' onClick={props.showPanel}/>:
+              <img alt='list' className="nav-link list_btn map_btn" src='https://i.imgur.com/Pmztb2W.png' onClick={props.showPanel}/>
+            }
           </li>
         )
       }
       {
         (props.isAuthenticated) && (
           <li className="nav-item">
-            <a className={(props.displayPanel) ? "nav-link btn-dark active":"nav-link btn-dark"} href='' onClick={props.showPanel}>Show List</a>
+            {
+              (props.displayPanel) ? <img alt='list' className="nav-link list_btn map_btn active" src='https://i.imgur.com/Pmztb2W.png' onClick={props.showPanel}/>:
+              <img alt='list' className="nav-link list_btn map_btn" src='https://i.imgur.com/Pmztb2W.png' onClick={props.showPanel}/>
+            }
           </li>
         )
       }
       {
         (props.isAuthenticated) && (
           <li className="nav-item">
-            <a className={(props.showFavorites) ? "nav-link btn-dark active": "nav-link btn-dark"} href='' onClick={props.switchPanel}>Saved List</a>
+            {
+              (props.showFavorites) ? <img alt='list' className="nav-link fav_btn map_btn active" src='https://i.imgur.com/NxIjVhE.png' onClick={props.switchPanel}/>:
+              <img alt='list' className="nav-link fav_btn map_btn" src='https://i.imgur.com/NxIjVhE.png' onClick={props.switchPanel}/>
+            }
           </li>
         )
       }

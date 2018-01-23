@@ -235,8 +235,8 @@ class ExploreIt extends Component {
         <Helmet>
           <title>{this.props.route.name}</title>
         </Helmet>
-        <div className='row'>
-          <div className='col-lg-12'>
+        <div>
+          <div>
             <Map className='animated fadeIn delay-01s' zoomControl={false} center={position} zoom={this.props.route.zoom}>
               <TileLayer
                 attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>'
@@ -251,7 +251,7 @@ class ExploreIt extends Component {
         {
           (this.state.displayPanel) ? <POIPanel className='animated fadeIn delay-02s' showFavorites={this.state.showFavorites} pois={this.displayPois()} location={this.props.route.location}/> :null
         }
-        {//<NavbarBottom showFavorites={this.state.showFavorites} isAuthenticated={this.state.isAuthenticated} showPanel={this.showPanel} displayPanel={this.state.displayPanel} switchPanel={this.switchPanel}/>
+        {<NavbarBottom showFavorites={this.state.showFavorites} isAuthenticated={this.state.isAuthenticated} showPanel={this.showPanel} displayPanel={this.state.displayPanel} switchPanel={this.switchPanel} locate={this.locate}/>
       }
       </div>
     );

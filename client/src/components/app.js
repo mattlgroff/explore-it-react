@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import Header from './Header/header';
-const divStyle = {
-  height: '100px'
-}
 
 class App extends Component {
   render() {
     return (
-      <div style={this.divStyle}>
+      <div>
         <Header logo="Explore It" />
 
         <div>
