@@ -1,6 +1,6 @@
 const axios = require('axios');
-// const BASE_URL = 'http://localhost:3000';
-const BASE_URL = 'https://exploreit.herokuapp.com';
+const BASE_URL = 'http://localhost:3000';
+// const BASE_URL = 'https://exploreit.herokuapp.com';
 
 const helpers = {
   getAllPoi: function(){
@@ -26,6 +26,9 @@ const helpers = {
       poiID: poiID
     });
   },
+  findOne: function(id){
+    return axios.get(BASE_URL + '/poi/'+id+'')
+  }
 }
 
 module.exports = helpers;

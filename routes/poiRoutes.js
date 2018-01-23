@@ -13,7 +13,7 @@ module.exports = app => {
 
   //Sends JSON of one POI in our database
   app.get("/poi/:id", (req, res) => {
-    poiController.findOne(req, res, req.params.id);
+    poiController.findOne(req, res);
   });
 
 }
