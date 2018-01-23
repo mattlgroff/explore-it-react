@@ -8,6 +8,7 @@ import NotFoundPage from './components/pages/not-found-page';
 // Import static pages
 import HomePage from './components/pages/home-page';
 import ExploreIt from './components/pages/map-page';
+import DetailedView from './components/pages/detail-page';
 
 // Import authentication related pages
 import Register from './components/auth/register';
@@ -38,6 +39,8 @@ export default (
       zoom={18} 
       name={'Grossmont College'} 
       location={'Grossmont'} />
+
+      <Route path="/detailed/:id" component={DetailedView} />
 
     <Route path="*" component={NotFoundPage} name="Page Not Found - Explore It" />
   </Route>
