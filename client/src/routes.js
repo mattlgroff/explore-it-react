@@ -9,6 +9,7 @@ import NotFoundPage from './components/pages/not-found-page';
 import HomePage from './components/pages/home-page';
 import ExploreIt from './components/pages/map-page';
 import DetailedView from './components/pages/detail-page';
+import About from './components/pages/about-page';
 
 // Import authentication related pages
 import Register from './components/auth/register';
@@ -21,7 +22,7 @@ export default (
     <Route path="register" component={Register} name="Register - Explore It"/>
     <Route path="login" component={Login} name="Login - Explore It"/>
     <Route path="logout" component={Logout}/>
-
+    <Route path="about" component={About} name="About - Explore It"/>
     <Route 
       path="belmont" 
       component={ExploreIt} 

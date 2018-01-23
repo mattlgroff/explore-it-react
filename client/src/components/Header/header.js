@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import cookie from 'react-cookies';
-import './header.css'
+import './header.css';
+import mainLogo from'./../../assets/icons/binoculars.ico';
+
+
+let divStyle = {
+    backgroundColor: "#4aaaa5"
+  };
+  let logoSize = {
+    width: "40px"
+  }
 
 
 class HeaderTemplate extends Component {
@@ -55,14 +64,17 @@ class HeaderTemplate extends Component {
     }
   }
 
+
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed-top animated fadeIn delay-02s">
+        
+        <nav className="navbar navbar-expand-lg navbar-light navbar-fixed-top animated fadeIn delay-02s" style={divStyle} >
           <div className="container-fluid">
 
             <div className="navbar-header">
-              <Link className="navbar-brand brandName" to="/">{this.props.logo}</Link>
+              
+              <Link className="navbar-brand brandName" to="/"><img  src={mainLogo} style={logoSize} alt="Explore It"/> {this.props.logo}</Link>
             </div>
 
             <button type="button" className="navbar-toggler collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="this-button">
