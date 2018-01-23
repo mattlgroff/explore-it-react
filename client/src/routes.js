@@ -26,8 +26,8 @@ export default (
     <Route 
       path="belmont" 
       component={ExploreIt} 
-      lat={32.770844} 
-      long={-117.2527572} 
+      lat={32.77053856} 
+      long={-117.251891} 
       zoom={18} 
       name={'Belmont Park'} 
       location={'Belmont'} />
