@@ -64,7 +64,8 @@ class ExploreIt extends Component {
     const user_token = cookie.load('user');
     console.log('user_token', user_token)
     const isAuth = (user_token ? true : false);
-    if(isAuth){
+    console.log('is auth false?', isAuth)
+    if(isAuth === true){
       this.setState({
         user:user_token,
         isAuthenticated: true
@@ -181,7 +182,7 @@ class ExploreIt extends Component {
     }
   }
   renderPopups = (name, img_src, lat, long, id) => {
-    if (this.isAuthenticated) {
+    if (this.state.isAuthenticated) {
       return (
         <Popup minWidth={90}>
           <div className='text-center animated fadeIn'>
@@ -230,15 +231,19 @@ class ExploreIt extends Component {
         <Helmet>
           <title>{this.props.route.name}</title>
         </Helmet>
-        <Map className='animated fadeIn delay-01s' zoomControl={false} center={position} zoom={this.props.route.zoom}>
-          <TileLayer
-            attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>'
-            url='https://api.mapbox.com/styles/v1/mattlgroff/cjcjws0xj18ea2sptc8iafsu5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF0dGxncm9mZiIsImEiOiJjamMzczFpNTExNWNmMnhwZjFvNGlpdnR4In0.y1gUOwBdSx6lhv_7TcmKJA'
-            />
-          {
-            this.displayPois().map(this.renderMarkers)
-          }
-        </Map>
+        <div className='row'>
+          <div className='col-lg-12'>
+            <Map className='animated fadeIn delay-01s' zoomControl={false} center={position} zoom={this.props.route.zoom}>
+              <TileLayer
+                attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>'
+                url='https://api.mapbox.com/styles/v1/mattlgroff/cjcjws0xj18ea2sptc8iafsu5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF0dGxncm9mZiIsImEiOiJjamMzczFpNTExNWNmMnhwZjFvNGlpdnR4In0.y1gUOwBdSx6lhv_7TcmKJA'
+                />
+              {
+                this.displayPois().map(this.renderMarkers)
+              }
+            </Map>
+          </div>
+        </div>
         {
           (this.state.displayPanel) ? <POIPanel className='animated fadeIn delay-02s' showFavorites={this.state.showFavorites} pois={this.displayPois()} location={this.props.route.location}/> :null
         }
