@@ -25,7 +25,7 @@ class ExploreIt extends Component {
     this.state = {
       user: {},
       showFavorites: false,
-      displayPanel: true,
+      displayPanel: false,
       pois: [],
       userFaveList: [],
       favPois: []
@@ -247,7 +247,8 @@ class ExploreIt extends Component {
         {
           (this.state.displayPanel) ? <POIPanel className='animated fadeIn delay-02s' showFavorites={this.state.showFavorites} pois={this.displayPois()} location={this.props.route.location}/> :null
         }
-        <NavbarBottom showFavorites={this.state.showFavorites} isAuthenticated={this.state.isAuthenticated} showPanel={this.showPanel} displayPanel={this.state.displayPanel} switchPanel={this.switchPanel}/>
+        {//<NavbarBottom showFavorites={this.state.showFavorites} isAuthenticated={this.state.isAuthenticated} showPanel={this.showPanel} displayPanel={this.state.displayPanel} switchPanel={this.switchPanel}/>
+      }
       </div>
     );
   }
