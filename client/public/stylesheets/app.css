@@ -13,4 +13,3 @@ ul.footer-nav>li{display:inline-block;padding-right:5px}
 .footer-nav li:after{content:" |"}
 .footer-nav li:last-of-type:after{content:""}
 p.copyright>span{color:#777}
-.cardStyle{width:18rem;}
