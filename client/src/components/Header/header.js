@@ -7,7 +7,9 @@ import mainLogo from'./../../assets/icons/binoculars.ico';
 
 
 let divStyle = {
-    backgroundColor: "#4aaaa5"
+    backgroundColor: "#2f2f2f",
+    borderBottom: "2px solid blue"
+
   };
   let logoSize = {
     width: "40px"
@@ -29,12 +31,13 @@ class HeaderTemplate extends Component {
         <li key={`${2}header`} className="nav-item">
           <Link className="nav-link" to="/belmont">Belmont Park</Link>
         </li>,
-
         <li key={`${3}header`} className="nav-item">
-          <Link className="nav-link" to="/grossmont">Grossmont College</Link>
+          <Link className="nav-link" to="/about">About</Link>
         </li>,
         <li key={`${4}header`} className="nav-item">
-
+          <Link className="nav-link" to="/grossmont">Grossmont College</Link>
+        </li>,
+        <li key={`${5}header`} className="nav-item">
           <Link className="nav-link" to="/logout">Logout {user.email}</Link>
           <div className='rounded-circle userAvatar'></div>
         </li>
@@ -52,12 +55,15 @@ class HeaderTemplate extends Component {
           <Link className="nav-link" to="/belmont">Belmont Park</Link>
         </li>,
         <li className="nav-item" key={3}>
-          <Link className="nav-link" to="/grossmont">Grossmont College</Link>
+          <Link className="nav-link" to="/about">About</Link>
         </li>,
         <li className="nav-item" key={4}>
-          <Link className="nav-link" to="/login">Login</Link>
+          <Link className="nav-link" to="/grossmont">Grossmont College</Link>
         </li>,
         <li className="nav-item" key={5}>
+          <Link className="nav-link" to="/login">Login</Link>
+        </li>,
+        <li className="nav-item" key={6}>
           <Link className="nav-link" to="/register">Register</Link>
         </li>
       ];
@@ -69,7 +75,7 @@ class HeaderTemplate extends Component {
     return (
       <div>
         
-        <nav className="navbar navbar-expand-lg navbar-light navbar-fixed-top animated fadeIn delay-02s" style={divStyle} >
+        <nav className="navbar navbar-expand-lg navbar-dark navbar-fixed-top animated fadeIn delay-02s" style={divStyle} >
           <div className="container-fluid">
 
             <div className="navbar-header">
