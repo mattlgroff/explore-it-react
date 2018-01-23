@@ -58,7 +58,7 @@ class HeaderTemplate extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top animated fadeIn delay-02s">
+        <nav className="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed-top animated fadeIn delay-02s">
           <div className="container-fluid">
 
             <div className="navbar-header">
