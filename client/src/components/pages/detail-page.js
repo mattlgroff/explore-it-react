@@ -33,7 +33,7 @@ class DetailedView extends Component {
 
   render() {
     return (
-    <div className="container">
+    <div>
         <Helmet>
           <title>{this.state.name}</title>
         </Helmet>
