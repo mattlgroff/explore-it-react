@@ -56,6 +56,10 @@ class DetailedView extends Component {
         <p>{this.state.category} at {this.state.location}</p>
 
         <hr></hr>
+        <a target="_blank" href={`https://www.google.com/maps/?daddr=${this.state.lat},${this.state.long}`}>
+          Directions to {this.state.name}
+        </a>
+        <hr></hr>
 
         <Image 
           className='img img-responsive animated fadeIn delay-02s' 
