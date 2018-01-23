@@ -1,5 +1,9 @@
 .mapCardStyle{
 	margin-top: 10px;
-	margin-left:17px;
+	margin-left:25px;
 	width: 33rem;
+}
+
+.mapImg{
+	height: 350px;
 }
