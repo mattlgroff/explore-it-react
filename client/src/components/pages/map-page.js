@@ -188,7 +188,9 @@ class ExploreIt extends Component {
           <div className='text-center animated fadeIn'>
             <h4 className='animated fadeIn'>{name}</h4>
             <Image className='img img-thumbnail img-responsive animated fadeIn delay-02s' src={img_src} width='200px'></Image>
-            <br></br>
+            <hr></hr>
+            <a className="btn btn-default" href={`/detailed/${id}`}>Detailed View</a>
+            <hr></hr>
               {
                 (this.state.userFaveList.indexOf(id) === -1) && (
                   <button className='btn btn-dark animated fadeInUp delay-03s' id={id} onClick={this.addToFavorites}>Save to Favorites</button>
@@ -213,7 +215,9 @@ class ExploreIt extends Component {
           <div className='text-center animated fadeIn'>
             <h4 className='animated fadeIn delay-01s'>{name}</h4>
             <Image className='img thumbnail animated fadeIn delay-02s' src={img_src} width='200px'></Image>
-            <br></br>
+            <hr></hr>
+            <a className="btn btn-default" href={`/detailed/${id}`}>Detailed View</a>
+            <hr></hr>
             Please Login to add to Favorites.
             <br></br>
             <a className='animated fadeInUp delay-03s' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
