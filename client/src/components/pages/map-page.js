@@ -3,6 +3,7 @@ import {Popup, Marker, Map, TileLayer} from 'react-leaflet';
 import {Icon} from 'leaflet';
 import {Image} from 'react-bootstrap';
 import axiosHelper from '../../api/axios.js';
+import { browserHistory } from 'react-router';
 import cookie from 'react-cookies';
 import { Helmet } from 'react-helmet';
 import "./map.css";
@@ -38,7 +39,14 @@ class ExploreIt extends Component {
   componentDidMount(){
     this.getAllPoi();
     this.isAuthenticated();
-  }
+  };
+
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      lat: nextProps.route.lat,
+      long: nextProps.route.long
+    });
+  };
 
   getAllPoi = () => {
     axiosHelper.getAllPoi()
@@ -135,7 +143,7 @@ class ExploreIt extends Component {
         this.setState({
           lat: position.coords.latitude,
           long: position.coords.longitude
-        })
+        });
       });
     } else {
       console.log("No geolocation");
@@ -199,7 +207,8 @@ class ExploreIt extends Component {
         </Marker>
       )
     }
-  }
+  };
+
   renderPopups = (name, img_src, lat, long, id) => {
     if (this.state.isAuthenticated) {
       return (
