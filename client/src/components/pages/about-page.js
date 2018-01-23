@@ -52,17 +52,27 @@ class AboutPage extends Component {
 			</div>
 		</div>
 		<div className = "col-lg-3 col-md-6 col-sm-6 card-pad animated fadeInUp delay-05s">
-			<div className="card ">
-				<img className="card-img-top mapImg img-responsive" src="http://farabaleweekly.com/wp-content/uploads/2016/09/Abioye04.png" alt="FJT" />
-				<div className="card-body">
-					<h4 className="card-title">Fiaalii Togiaso</h4>
-					<h6 className="card-text">Bio: </h6>
-					<p>We are here today, to tell you about whatever it is you want! They went for bat</p>
+			<div className="card">
+				<div className="front">
+					<img className="card-img-top mapImg img-responsive" src="http://farabaleweekly.com/wp-content/uploads/2016/09/Abioye04.png" alt="FJT" />
+					<div className="card-body">
+						<h4 className="card-title">Fiaalii Togiaso</h4>
+						<h6 className="card-text">Bio: </h6>
+						<p>We are here today, to tell you about whatever it is you want! They went for bat</p>
+					</div>
+				</div>
+				<div className="back">
+					<div className="card-body">
+						<h4 className="card-title">Contact Info / Portfolio</h4>
+						<h6 className="card-text">Github: <a href="https://github.com/jtogiaso"> jtogiaso@github.com </a></h6>
+						<h6 className="card-text">LinkedIn: <a href="https://github.com/jtogiaso"> jtogiaso@github.com </a></h6>
+						<h6 className="card-text">Github: <a href="https://github.com/jtogiaso"> jtogiaso@github.com </a></h6>
+						<h6 className="card-text">Github: <a href="https://github.com/jtogiaso"> jtogiaso@github.com </a></h6>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 	<div>
 		<br/>

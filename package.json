@@ -24,7 +24,6 @@
     "crypto": "^1.0.1",
     "express": "^4.15.4",
     "jsonwebtoken": "^8.1.0",
-    "mdbootstrap": "^4.4.4",
     "mongoose": "^4.13.8",
     "mongoose-findorcreate": "^2.0.0",
     "passport": "^0.4.0",

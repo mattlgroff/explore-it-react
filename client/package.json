@@ -10,7 +10,6 @@
     "bootstrap": "^3.3.7",
     "dotenv": "^4.0.0",
     "leaflet": "^1.2.0",
-    "mdbootstrap": "^4.4.4",
     "prop-types": "^15.6.0",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
