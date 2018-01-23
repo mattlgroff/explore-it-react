@@ -6,7 +6,7 @@ import "./home.css";
 class HomePage extends Component {
   render() {
     return (
-<div>
+<div className="container">
 	<Helmet>
 		<title>Explore Your World</title>
 	</Helmet>
@@ -16,11 +16,9 @@ class HomePage extends Component {
 		<hr className="my-4" />
 		<p>Explore It is maps as a service. It's modular design allows any public area to have it's own map overlay.</p>
 	</div>
-	<div className = "container">
 	<div className = "row">
 		<div className="card mapCardStyle">
 			<img className="card-img-top" src="https://exploreit.herokuapp.com/belmont_park.png" alt="Belmont Park" />
-
 			<div className="card-body">
 			<h5 className="card-title">Belmont Park</h5>
 			<p className="card-text">Belmont Park is a historic oceanfront amusement park located in the Mission Bay area of San Diego, California.</p>
@@ -44,10 +42,6 @@ class HomePage extends Component {
 			<li className="list-group-item">Vestibulum at eros</li>
 			</ul>
 		</div>
-
-	</div>
-
-	
 
 	</div>
 </div>

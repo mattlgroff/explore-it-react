@@ -1,6 +1,6 @@
 .leaflet-container {
   position: relative;
-  height: 776px;
+  height: 733px;
   width: 100%;
   z-index: 0;
   margin-bottom: 0;
@@ -8,4 +8,8 @@
 .popupMap {
   width: 200px;
   height: 100px;
+}
+button.btn {
+  padding: 10px;
+  margin: 10px;
 }
