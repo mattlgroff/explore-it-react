@@ -35,7 +35,8 @@ class ExploreIt extends Component {
       lat: props.route.lat,
       long: props.route.long,
       gps_lat: 32.8214787,
-      gps_long: -117.272888
+      gps_long: -117.272888,
+      gps: false
     }
   };
 
@@ -138,11 +139,9 @@ class ExploreIt extends Component {
     })
   };
 
-  locate = () => {
+  locate = (e) => {
     if ("geolocation" in navigator) {
-      /* geolocation is available */
-      navigator.geolocation.watchPosition(position => {
-
+      let watchId = navigator.geolocation.watchPosition(position => {
         console.log("Moved map to different location");
         this.setState({
           lat: position.coords.latitude,
@@ -150,7 +149,12 @@ class ExploreIt extends Component {
           gps_lat: position.coords.latitude,
           gps_long: position.coords.longitude
         });
+
+        navigator.geolocation.clearWatch(watchId);
+        console.log("turned off gps")
       });
+
+
     } else {
       console.log("No geolocation");
       /* geolocation IS NOT available */

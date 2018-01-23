@@ -1,8 +1,8 @@
 {
   "main.css": "static/css/main.8ae1cd7f.css",
   "main.css.map": "static/css/main.8ae1cd7f.css.map",
-  "main.js": "static/js/main.f88041fc.js",
-  "main.js.map": "static/js/main.f88041fc.js.map",
+  "main.js": "static/js/main.d4639140.js",
+  "main.js.map": "static/js/main.d4639140.js.map",
   "static/media/attraction.svg": "static/media/attraction.feb1439a.svg",
   "static/media/bathroom.svg": "static/media/bathroom.ba71c84d.svg",
   "static/media/classroom.svg": "static/media/classroom.bc2a22b5.svg",
@@ -10,6 +10,7 @@
   "static/media/football.svg": "static/media/football.8595cc2c.svg",
   "static/media/fountain.svg": "static/media/fountain.fd585587.svg",
   "static/media/parking.svg": "static/media/parking.71613e51.svg",
+  "static/media/pegman.svg": "static/media/pegman.97b86012.svg",
   "static/media/publictransit.svg": "static/media/publictransit.a3851923.svg",
   "static/media/shopping.svg": "static/media/shopping.fc55566c.svg"
 }
