@@ -14,39 +14,25 @@ let favoritesController = {
   },
   addOne: function(req, res) {
     //console.log(req.body);
-    let email = req.body.email;
-    let fave =  req.body.list;
+    let userID = req.body._id;
+    let poiID =  req.body.poiID;
     console.log("Hit addOne controller option");
-    console.log("email: " + email);
-    console.log("List: " + fave);
+    console.log("_id: " + userID);
+    console.log("List: " + poiID);
     db.Favorites
-      .findOneAndUpdate({email: email}, { $addToSet: { list: fave }}, {new: true, upsert: true})
+      .findOneAndUpdate({_id: userID}, { $addToSet: { list: poiID }}, {new: true, upsert: true})
       .then((dbModel) => res.json(dbModel))
       .catch(err => {
         console.error(err);
         res.status(422).json(err)
       });
   },
-  isFavorite: function(req, res){
-    let email = req.body.email;
-    let list = req.body.list;
-
-    db.Favorites
-      .find({email: email, list: list})
-      .then(dbModel => res.json(dbModel))
-      .catch(err => {
-        console.error(err);
-        res.status(422).json(err)
-      });
-  },
   remove: function(req , res){
-    let email = req.body.email;
-    let fave =  req.body.list;
+    let userID = req.body._id;
+    let poiID =  req.body.poiID;
     console.log("Hit Remove controller option");
-    console.log("email: " + email);
-    console.log("List: " + fave);
     db.Favorites
-      .findOneAndUpdate({email: email}, {$pull: { list: fave }}, {new: true})
+      .findOneAndUpdate({_id: userID}, {$pull: { list: poiID }}, {new: true})
       .then(dbModel => {
         console.log('dbModel', dbModel)
         res.json(dbModel)
