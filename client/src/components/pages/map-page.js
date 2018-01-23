@@ -3,7 +3,6 @@ import {Popup, Marker, Map, TileLayer} from 'react-leaflet';
 import {Icon} from 'leaflet';
 import {Image} from 'react-bootstrap';
 import axiosHelper from '../../api/axios.js';
-import { browserHistory } from 'react-router';
 import cookie from 'react-cookies';
 import { Helmet } from 'react-helmet';
 import "./map.css";
