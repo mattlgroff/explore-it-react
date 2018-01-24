@@ -60,3 +60,7 @@ nav.navbar.navbar-expand-lg.navbar-dark {
     font-weight: 500;
     line-height: 15.4px;
 }
+
+.spacing-nav {
+  width: 75px;
+}
