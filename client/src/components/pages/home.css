@@ -1,9 +1,29 @@
 .mapCardStyle{
 	margin-top: 10px;
-	margin-left:25px;
-	width: 33rem;
+	margin-bottom:25px;
+	padding: 10px;
+	height: 30rem;
 }
-
 .mapImg{
-	height: 350px;
+	width: 20rem;
+	height: 15rem;
+	box-shadow: 1px 1px 3px #000;
+}
+.mainSec {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../../../photos/background2.jpeg');
+	background-position: bottom;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	height: 100%;	
+}
+.jumbotron {
+	color: #fff;
+	background-color: transparent;
+	text-shadow: 1px 2px 4px #000;
+	margin-bottom: 40px;
+}
+.moduleSec {
+	background-color: #fff;
+	border-top: 2px solid rgba(100, 100, 100, 0.5);
 }
