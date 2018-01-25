@@ -12,10 +12,10 @@ class HomePage extends Component {
 						<title>Explore Your World</title>
 					</Helmet>
 					<div className="jumbotron">
-						<h1 className="display-4">Explore It</h1>
+						<h1 className="display-4 brandName">Explore It</h1>
 						<p className="lead">Maps As A Service</p>
 						<hr className="my-4" />
-						<p>Explore It is maps as a service. It's modular design allows any public area to have it's own map overlay.</p>
+						<p>A (MaaS) Map As A Service company that provides interactive maps to create an intuitive and easy-to-use guest experience for prospective clients. Such clients could include: Zoos, Theme Parks, and Museums just to name a few.</p>
 					</div>
 				</div>
 				<div className="container-fluid moduleSec">
