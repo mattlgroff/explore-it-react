@@ -8,7 +8,7 @@ class HomePage extends Component {
     return (
 <div className="container">
 	<Helmet>
-		<title>Explore Your World</title>
+		<title>{this.props.route.name}</title>
 	</Helmet>
 	<div className="jumbotron">
 		<h1 className="display-4">Explore It</h1>
