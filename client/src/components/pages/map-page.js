@@ -18,6 +18,8 @@ import waterIcon from '../../assets/icons/fountain.svg';
 import parkingIcon from '../../assets/icons/parking.svg';
 import classroomIcon from '../../assets/icons/classroom.svg';
 import publictransitIcon from '../../assets/icons/publictransit.svg';
+import pegmanIcon from '../../assets/icons/pegman.svg';
+const pegman = new Icon({iconUrl: pegmanIcon, iconSize: [32,64]});
 
 class ExploreIt extends Component {
   constructor(props) {
@@ -31,14 +33,24 @@ class ExploreIt extends Component {
       userFaveList: [],
       favPois: [],
       lat: props.route.lat,
-      long: props.route.long
+      long: props.route.long,
+      gps_lat: 32.8214787,
+      gps_long: -117.272888,
+      gps: false
     }
   };
 
   componentDidMount(){
     this.getAllPoi();
     this.isAuthenticated();
-  }
+  };
+
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      lat: nextProps.route.lat,
+      long: nextProps.route.long
+    });
+  };
 
   getAllPoi = () => {
     axiosHelper.getAllPoi()
@@ -127,16 +139,22 @@ class ExploreIt extends Component {
     })
   };
 
-  locate = () => {
+  locate = (e) => {
     if ("geolocation" in navigator) {
-      /* geolocation is available */
-      navigator.geolocation.watchPosition(position => {
+      let watchId = navigator.geolocation.watchPosition(position => {
         console.log("Moved map to different location");
         this.setState({
           lat: position.coords.latitude,
-          long: position.coords.longitude
-        })
+          long: position.coords.longitude,
+          gps_lat: position.coords.latitude,
+          gps_long: position.coords.longitude
+        });
+
+        navigator.geolocation.clearWatch(watchId);
+        console.log("turned off gps")
       });
+
+
     } else {
       console.log("No geolocation");
       /* geolocation IS NOT available */
@@ -199,7 +217,8 @@ class ExploreIt extends Component {
         </Marker>
       )
     }
-  }
+  };
+
   renderPopups = (name, img_src, lat, long, id) => {
     if (this.state.isAuthenticated) {
       return (
@@ -260,6 +279,7 @@ class ExploreIt extends Component {
                 attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>'
                 url='https://api.mapbox.com/styles/v1/mattlgroff/cjcjws0xj18ea2sptc8iafsu5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF0dGxncm9mZiIsImEiOiJjamMzczFpNTExNWNmMnhwZjFvNGlpdnR4In0.y1gUOwBdSx6lhv_7TcmKJA'
                 />
+                <Marker className='animated fadeInUp' icon={pegman} position={[this.state.gps_lat,this.state.gps_long]} />
               {
                 this.displayPois().map(this.renderMarkers)
               }

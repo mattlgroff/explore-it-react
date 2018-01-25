@@ -16,7 +16,7 @@ class HomePage extends Component {
 		<hr className="my-4" />
 		<p>Explore It is maps as a service. It's modular design allows any public area to have it's own map overlay.</p>
 	</div>
-	<div className = "row">
+	<div className="row">
 		<div className="card mapCardStyle">
 			<a href="https://exploreit.herokuapp.com/belmont">
 			<img className="card-img-top mapImg" src="https://exploreit.herokuapp.com/belmont_park.png" alt="Belmont Park" />
