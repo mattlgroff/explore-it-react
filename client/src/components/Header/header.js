@@ -8,7 +8,7 @@ import mainLogo from'./../../assets/icons/binoculars.ico';
 
 let divStyle = {
     backgroundColor: "#2f2f2f",
-    borderBottom: "2px solid blue"
+    borderBottom: "2px solid white"
 
   };
   let logoSize = {
