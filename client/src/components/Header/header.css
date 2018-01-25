@@ -1,35 +1,66 @@
-body, html {
-  overflow: auto;
+body,
+html {
+    overflow: auto;
 }
+
 nav.navbar.navbar-expand-lg.navbar-dark {
   background-color: rgba(205,42,0,0.4);
 }
+
 .brandName {
-  font-family: 'Marko One', serif;
-  text-decoration: none;
-  color:#fff;
-  text-shadow: 1px 1px 1px #000;
-  display: inline-block;
+    font-family: 'Marko One', serif;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    display: inline-block;
 }
+
 .brandLogo {
-  width: 30px;
-  height: 30px;
-  filter: drop-shadow( -1px -1px 1px #000 );
-  margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow( -1px -1px 1px #000);
+    margin-right: 5px;
 }
+
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255,255,255,.9);
-  text-shadow: 1px 1px 1px #000;
+    color: rgba(255, 255, 255, .9);
+    text-shadow: 1px 1px 1px #000;
 }
+
 .navbar {
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
 .userAvatar {
-  width: 100px;
-  background-color: #fff;
+    width: 100px;
+    background-color: #fff;
 }
-.btn-dark:not(:disabled):not(.disabled).active,.show>.btn-dark.dropdown-toggle {
-  color: #fff;
-  background-color: rgba(205,42,0,0.8);
-  border-color: #171a1d;
+
+.btn-dark:not(:disabled):not(.disabled).active,
+.show>.btn-dark.dropdown-toggle {
+    color: #fff;
+    background-color: rgba(205, 42, 0, 0.8);
+    border-color: #171a1d;
+}
+
+.logo-size {
+    width: 40px;
+}
+
+.div-style {
+    background-color: #2f2f2f;
+    border-bottom: 2px solid blue;
+}
+
+.logo-font {
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+}
+
+.spacing-nav {
+  width: 75px;
 }
