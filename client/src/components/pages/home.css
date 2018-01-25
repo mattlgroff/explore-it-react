@@ -4,18 +4,18 @@
 	padding: 10px;
 	height: 30rem;
 }
-
 .mapImg{
 	width: 20rem;
 	height: 15rem;
 	box-shadow: 1px 1px 3px #000;
 }
-body {
+.mainSec {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../../../photos/background2.jpeg');
 	background-position: bottom;
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+	height: 100%;	
 }
 .jumbotron {
 	color: #fff;

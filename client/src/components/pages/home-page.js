@@ -7,7 +7,7 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				<div className="container text-center mainSec">
+				<div className="container-fluid text-center mainSec">
 					<Helmet>
 						<title>Explore Your World</title>
 					</Helmet>
