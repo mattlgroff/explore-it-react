@@ -231,7 +231,8 @@ class ExploreIt extends Component {
         <Popup minWidth={90}>
           <div className='text-center animated fadeIn'>
             <h5 className='animated fadeIn'>{name}</h5>
-            <Image className='img img-thumbnail img-responsive animated fadeIn delay-02s' src={img_src} width='200px'></Image>
+            <Image className='img animated fadeIn delay-02s' src={img_src} width='192px' height='108px'></Image>
+            <br></br>
             <button className="btn animated fadeInUp delay-02s btn-dark pop_btn" onClick={() => {this.detailLink(id)}}>Detailed View</button>
 
               {
@@ -256,12 +257,13 @@ class ExploreIt extends Component {
         // Unauthenticated navigation
         <Popup minWidth={90}>
           <div className='text-center animated fadeIn'>
-            <h4 className='animated fadeIn delay-01s'>{name}</h4>
-            <Image className='img thumbnail animated fadeIn delay-02s' src={img_src} width='200px'></Image>
-              <button className="btn animated fadeInUp delay-02s btn-dark pop_btn" onClick={() => {this.detailLink(id)}}>Detailed View</button>
-              <br></br>
-              <span className=''>Please Login to add to Favorites.</span>
-            <hr></hr>
+            <h5 className='animated fadeIn delay-01s'>{name}</h5>
+            <Image className='img animated fadeIn delay-02s' src={img_src} width='192px' height='108px'></Image>
+            <br></br>
+            <button className="btn animated fadeInUp delay-02s btn-dark pop_btn" onClick={() => {this.detailLink(id)}}>Detailed View</button>
+            <br></br>
+            <span className=''>Please Login to add to Favorites.</span>
+            <br></br>
             <a className='animated fadeInUp delay-03s btn' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions <i className="fa fa-map" aria-hidden="true"></i></a>
           </div>
         </Popup>
