@@ -72,7 +72,6 @@ class Register extends Component {
                     <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
                     <br/>
                     <div className="errDiv text-danger" id="ide">
-                      This email is already in use.
                     </div>
                     <br/>
                     <button type="submit" className="btn btn-primary">Register</button>

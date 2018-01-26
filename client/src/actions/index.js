@@ -25,11 +25,15 @@ export function fetchUser(uid) {
 }
 
 export function errorHandler(dispatch, error, type) {
-  //console.log('Error type: ', type);
-  if (type === "auth_error"){
-    document.getElementById("ide").classList.remove("errDiv")
 
-  }
+  //***Most error messages are being handled in auth.js***
+  //***So this function is pretty much useless*** - jtogiaso
+
+  //console.log('Error type: ', type);
+  // if (type === "auth_error"){
+  //   document.getElementById("ide").classList.remove("errDiv")
+
+  // }
   //console.log(error);
 
 
