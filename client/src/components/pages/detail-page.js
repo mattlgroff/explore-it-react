@@ -84,7 +84,11 @@ class DetailedView extends Component {
           <Marker className='animated fadeInUp' position={[this.state.lat,this.state.long]} />
         </Map>
 
-
+        <footer className="footer">
+          <div className="container-fluid">
+            © 2018 Copyright Explore It
+        </div>
+      </footer>
 
 
     </div>

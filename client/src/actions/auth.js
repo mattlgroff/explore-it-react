@@ -11,8 +11,6 @@ import { AUTH_USER, AUTH_ERROR, UNAUTH_USER} from './types';
 // TO-DO: Add expiration to cookie
 export function loginUser({ email, password }) {
   return function (dispatch) {
-    console.log(API_URL);
-    console.log(CLIENT_ROOT_URL);
     axios.post(`${API_URL}auth/login`, { email, password })
     .then((response) => {
       cookie.save('token', response.data.token, { path: '/' });
@@ -54,4 +52,3 @@ export function logoutUser(error) {
     browserHistory.goBack();
   };
 }
-
