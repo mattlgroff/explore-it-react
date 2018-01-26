@@ -232,13 +232,8 @@ class ExploreIt extends Component {
           <div className='text-center animated fadeIn'>
             <h5 className='animated fadeIn'>{name}</h5>
             <Image className='img img-thumbnail img-responsive animated fadeIn delay-02s' src={img_src} width='200px'></Image>
-<<<<<<< HEAD
-            <button className="btn btn-dark pop_btn animated fadeInUp delay-02s"><a className='detailed-link' href={`/detailed/${id}`}>Detailed View</a></button>
-=======
-            <hr></hr>
-            <button className="btn animated fadeInUp delay-03s" onClick={() => {this.detailLink(id)}}>Detailed View</button>
-            <hr></hr>
->>>>>>> master
+            <button className="btn animated fadeInUp delay-02s btn-dark pop_btn" onClick={() => {this.detailLink(id)}}>Detailed View</button>
+
               {
                 (this.state.userFaveList.indexOf(id) === -1) && (
                   <button className='btn btn-dark animated fadeInUp delay-03s' id={id} onClick={this.addToFavorites}><img alt='list' className="nav-link img_btn" src='https://exploreit.herokuapp.com/favlist.png'/>Favorite</button>
@@ -263,19 +258,11 @@ class ExploreIt extends Component {
           <div className='text-center animated fadeIn'>
             <h4 className='animated fadeIn delay-01s'>{name}</h4>
             <Image className='img thumbnail animated fadeIn delay-02s' src={img_src} width='200px'></Image>
-              <button className="btn btn-dark pop_btn animated fadeInUp delay-02s"><a className='detailed-link' href={`/detailed/${id}`}>Detailed View</a></button>
+              <button className="btn animated fadeInUp delay-02s btn-dark pop_btn" onClick={() => {this.detailLink(id)}}>Detailed View</button>
               <br></br>
               <span className=''>Please Login to add to Favorites.</span>
             <hr></hr>
-<<<<<<< HEAD
             <a className='animated fadeInUp delay-03s btn' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions <i className="fa fa-map" aria-hidden="true"></i></a>
-=======
-            <button className="btn animated fadeInUp delay-03s" onClick={() => {this.detailLink(id)}}>Detailed View</button>
-            <hr></hr>
-            Please Login to add to Favorites.
-            <br></br>
-            <a className='animated fadeInUp delay-03s' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
->>>>>>> master
           </div>
         </Popup>
       );
