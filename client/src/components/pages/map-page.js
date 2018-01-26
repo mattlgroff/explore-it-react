@@ -3,6 +3,7 @@ import {Popup, Marker, Map, TileLayer} from 'react-leaflet';
 import {Icon} from 'leaflet';
 import {Image} from 'react-bootstrap';
 import axiosHelper from '../../api/axios.js';
+import { browserHistory } from 'react-router';
 import cookie from 'react-cookies';
 import { Helmet } from 'react-helmet';
 import "./map.css";
@@ -70,16 +71,16 @@ class ExploreIt extends Component {
       this.setState({
         favPois: results.data
       });
-      console.log('favoritePois', this.state.favPois)
+      //console.log('favoritePois', this.state.favPois)
     })
     .catch(err => console.error(err));
   };
 
   isAuthenticated = () => {
     const user_token = cookie.load('user');
-    console.log('user_token', user_token)
+    //console.log('user_token', user_token)
     const isAuth = (user_token ? true : false);
-    console.log('is auth false?', isAuth)
+    //console.log('is auth false?', isAuth)
     if(isAuth === true){
       this.setState({
         user:user_token,
@@ -93,7 +94,7 @@ class ExploreIt extends Component {
     axiosHelper.getUserFavoriteList(user._id)
     .then(results => {
       this.setState({userFaveList: results.data.list});
-      console.log('this.userFaveList',this.state.userFaveList)
+      //console.log('this.userFaveList',this.state.userFaveList)
       this.getAllFavPoi(this.state.userFaveList)
     })
   };
@@ -139,10 +140,15 @@ class ExploreIt extends Component {
     })
   };
 
+  detailLink = (id) => {
+    //console.log(`Going to /detailed/${id}`);
+    browserHistory.push(`/detailed/${id}`);
+  };
+
   locate = (e) => {
     if ("geolocation" in navigator) {
       let watchId = navigator.geolocation.watchPosition(position => {
-        console.log("Moved map to different location");
+        //console.log("Moved map to different location");
         this.setState({
           lat: position.coords.latitude,
           long: position.coords.longitude,
@@ -151,12 +157,12 @@ class ExploreIt extends Component {
         });
 
         navigator.geolocation.clearWatch(watchId);
-        console.log("turned off gps")
+        //console.log("turned off gps")
       });
 
 
     } else {
-      console.log("No geolocation");
+      //console.log("No geolocation");
       /* geolocation IS NOT available */
     }
   };
@@ -227,7 +233,7 @@ class ExploreIt extends Component {
             <h4 className='animated fadeIn'>{name}</h4>
             <Image className='img img-thumbnail img-responsive animated fadeIn delay-02s' src={img_src} width='200px'></Image>
             <hr></hr>
-            <a className="btn btn-default" href={`/detailed/${id}`}>Detailed View</a>
+            <button className="btn animated fadeInUp delay-03s" onClick={() => {this.detailLink(id)}}>Detailed View</button>
             <hr></hr>
               {
                 (this.state.userFaveList.indexOf(id) === -1) && (
@@ -254,7 +260,7 @@ class ExploreIt extends Component {
             <h4 className='animated fadeIn delay-01s'>{name}</h4>
             <Image className='img thumbnail animated fadeIn delay-02s' src={img_src} width='200px'></Image>
             <hr></hr>
-            <a className="btn btn-default" href={`/detailed/${id}`}>Detailed View</a>
+            <button className="btn animated fadeInUp delay-03s" onClick={() => {this.detailLink(id)}}>Detailed View</button>
             <hr></hr>
             Please Login to add to Favorites.
             <br></br>

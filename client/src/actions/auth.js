@@ -22,6 +22,7 @@ export function loginUser({ email, password }) {
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);
+      browserHistory.goBack();
     });
   };
 }
@@ -37,6 +38,7 @@ export function registerUser({ email, password }) {
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);
+      browserHistory.goBack();
     });
   };
 }

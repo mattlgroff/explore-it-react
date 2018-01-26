@@ -10,7 +10,7 @@
 	box-shadow: 1px 1px 3px #000;
 }
 .mainSec {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../../../photos/background2.jpeg');
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../../../photos/background2.jpg');
 	background-position: bottom;
 	background-size: cover;
 	background-attachment: fixed;
