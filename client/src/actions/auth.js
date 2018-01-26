@@ -9,7 +9,20 @@ import { AUTH_USER, AUTH_ERROR, UNAUTH_USER} from './types';
 //= ===============================
 
 // TO-DO: Add expiration to cookie
-export function loginUser({ email, password }) {
+
+
+function validateEmail(email) {
+  var pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return pattern.test(String(email).toLowerCase());
+}
+
+function validationErrorDiv (errorPhrase) {
+  document.getElementById("ide").classList.add("errDiv")
+  document.getElementById("ide").classList.remove("errDiv")
+  document.getElementById("ide").innerHTML = (errorPhrase);  
+}
+
+export function loginUser({ email, password } , object) {
   return function (dispatch) {
     axios.post(`${API_URL}auth/login`, { email, password })
     .then((response) => {
@@ -19,30 +32,23 @@ export function loginUser({ email, password }) {
       browserHistory.goBack();
     })
     .catch((error) => {
-      document.getElementById("ide").classList.add("errDiv")
-      document.getElementById("ide").classList.remove("errDiv")
-      document.getElementById("ide").innerHTML = ("The email or password you have entered is incorrect.");
+      validationErrorDiv("The email or password you have entered is incorrect.");
+      object.setState({loading: false})
       errorHandler(dispatch, error.response, AUTH_ERROR);
     });
   };
 }
 
-export function registerUser({ email, password }) {
-  function validateEmail(email) {
-    var pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return pattern.test(String(email).toLowerCase());
-  }
+export function registerUser({ email, password } , object) {
 
   if (!validateEmail(email)){
-    document.getElementById("ide").classList.add("errDiv")
-    document.getElementById("ide").classList.remove("errDiv")
-    document.getElementById("ide").innerHTML = ("Please enter a vaild email address.");
+    validationErrorDiv("Please enter a vaild email address.");
+    object.setState({loading: false})
     return;
   }
   else if (password.length < 4){
-    document.getElementById("ide").classList.add("errDiv")
-    document.getElementById("ide").classList.remove("errDiv")
-    document.getElementById("ide").innerHTML = ("Your password must be longer than 3 characters.");
+    validationErrorDiv("Your password must be longer than 3 characters.");
+    object.setState({loading: false})
     return;
   }
   else{
@@ -55,10 +61,9 @@ export function registerUser({ email, password }) {
           browserHistory.goBack();
         })
         .catch((error) => {
-          document.getElementById("ide").classList.add("errDiv")
-          document.getElementById("ide").classList.remove("errDiv")
-          document.getElementById("ide").innerHTML = ("Email has already been used.");
+          validationErrorDiv("Email has already been used.");
           errorHandler(dispatch, error.response, AUTH_ERROR);
+          object.setState({loading: false})
         });
       };
   }

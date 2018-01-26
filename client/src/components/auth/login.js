@@ -3,14 +3,29 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { loginUser } from '../../actions/auth';
 import { Helmet } from 'react-helmet';
+import { ClipLoader } from 'react-spinners';
 
 const form = reduxForm({
   form: 'login',
 });
 
 class Login extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false
+    }
+  }
+
+  changeState(){
+    if (!this.state.loading) {
+      this.setState({loading: true})
+    }
+  }
+
   handleFormSubmit(formProps) {
-    this.props.loginUser(formProps);
+    this.props.loginUser(formProps , this);
   }
 
   renderAlert() {
@@ -49,7 +64,19 @@ class Login extends Component {
                 <div className="errDiv text-danger" id="ide">
                 </div>
                 <br/>
-                <button type="submit" className="btn btn-primary">Login</button>
+                <div className="row">
+                  <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <button type="submit" className="btn btn-primary" onClick={this.changeState.bind(this)}>Login</button>
+                  </div>
+                  <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div className='sweet-loading'>
+                      <ClipLoader
+                        color={'#123abc'} 
+                        loading={this.state.loading} 
+                      />
+                    </div>
+                  </div>
+                </div>
               </form>
             </div>
           </div>
