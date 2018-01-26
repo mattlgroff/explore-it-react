@@ -230,23 +230,22 @@ class ExploreIt extends Component {
       return (
         <Popup minWidth={90}>
           <div className='text-center animated fadeIn'>
-            <h4 className='animated fadeIn'>{name}</h4>
+            <h5 className='animated fadeIn'>{name}</h5>
             <Image className='img img-thumbnail img-responsive animated fadeIn delay-02s' src={img_src} width='200px'></Image>
-            <hr></hr>
-            <button className="btn animated fadeInUp delay-03s" onClick={() => {this.detailLink(id)}}>Detailed View</button>
-            <hr></hr>
+            <button className="btn animated fadeInUp delay-02s btn-dark pop_btn" onClick={() => {this.detailLink(id)}}>Detailed View</button>
+
               {
                 (this.state.userFaveList.indexOf(id) === -1) && (
-                  <button className='btn btn-dark animated fadeInUp delay-03s' id={id} onClick={this.addToFavorites}>Save to Favorites</button>
+                  <button className='btn btn-dark animated fadeInUp delay-03s' id={id} onClick={this.addToFavorites}><img alt='list' className="nav-link img_btn" src='https://exploreit.herokuapp.com/favlist.png'/>Favorite</button>
                 )
               }
               {
                 (this.state.userFaveList.indexOf(id) !== -1) && (
-                  <button className='btn btn-dark animated fadeInUp delay-03s' id={id} onClick={this.removeFavorite}>Remove Favorite</button>
+                  <button className='btn btn-dark animated fadeInUp delay-03s' id={id} onClick={this.removeFavorite}><img alt='list' className="nav-link img_btn" src='https://exploreit.herokuapp.com/favlist.png'/>Unfavorite</button>
                 )
               }
             <br></br>
-            <a className='animated fadeInUp delay-04s' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
+            <a className='animated fadeInUp delay-04s btn' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions<i className="fa fa-map" aria-hidden="true"></i></a>
           </div>
         </Popup>
       );
@@ -259,12 +258,11 @@ class ExploreIt extends Component {
           <div className='text-center animated fadeIn'>
             <h4 className='animated fadeIn delay-01s'>{name}</h4>
             <Image className='img thumbnail animated fadeIn delay-02s' src={img_src} width='200px'></Image>
+              <button className="btn animated fadeInUp delay-02s btn-dark pop_btn" onClick={() => {this.detailLink(id)}}>Detailed View</button>
+              <br></br>
+              <span className=''>Please Login to add to Favorites.</span>
             <hr></hr>
-            <button className="btn animated fadeInUp delay-03s" onClick={() => {this.detailLink(id)}}>Detailed View</button>
-            <hr></hr>
-            Please Login to add to Favorites.
-            <br></br>
-            <a className='animated fadeInUp delay-03s' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
+            <a className='animated fadeInUp delay-03s btn' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions <i className="fa fa-map" aria-hidden="true"></i></a>
           </div>
         </Popup>
       );
