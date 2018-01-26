@@ -51,7 +51,7 @@ class Register extends Component {
     return (
       <div className="container">
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {this.renderAlert()}
+          
           <Helmet>
             <title>{this.props.route.name}</title>
           </Helmet>
@@ -71,7 +71,7 @@ class Register extends Component {
                   <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
                   <br/>
                   <div className="errDiv text-danger" id="ide">
-                    "Error Message"
+                    This email is already in use.
                   </div>
                   <br/>
                   <button type="submit" className="btn btn-primary">Register</button>

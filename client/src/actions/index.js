@@ -27,7 +27,6 @@ export function fetchUser(uid) {
 export function errorHandler(dispatch, error, type) {
   console.log('Error type: ', type);
   if (type == "auth_error"){
-    document.getElementById("ide").innerHTML="This email is already in use!";
     document.getElementById("ide").classList.remove("errDiv")
 
   }

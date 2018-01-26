@@ -22,7 +22,8 @@ export function loginUser({ email, password }) {
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);
-      browserHistory.goBack();
+      alert("why are you still going back! Even why i delete you?");
+      // browserHistory.goBack();
     });
   };
 }
@@ -38,7 +39,7 @@ export function registerUser({ email, password }) {
     })
     .catch((error) => {
       errorHandler(dispatch, error.response, AUTH_ERROR);
-      browserHistory.goBack();
+      alert("But here you are not!!!")
     });
   };
 }
