@@ -20,7 +20,7 @@ import parkingIcon from '../../assets/icons/parking.svg';
 import classroomIcon from '../../assets/icons/classroom.svg';
 import publictransitIcon from '../../assets/icons/publictransit.svg';
 import pegmanIcon from '../../assets/icons/pegman.svg';
-const pegman = new Icon({iconUrl: pegmanIcon, iconSize: [32,64]});
+const pegman = new Icon({iconUrl: pegmanIcon, iconSize: [32,64], popupAnchor:  [0, -32]});
 
 class ExploreIt extends Component {
   constructor(props) {
@@ -178,39 +178,39 @@ class ExploreIt extends Component {
 
       switch(poi.category){
         case 'Attraction':
-        icon_source = new Icon({iconUrl: attractionIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: attractionIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Bathroom':
-        icon_source = new Icon({iconUrl: bathroomIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: bathroomIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Classroom':
-        icon_source = new Icon({iconUrl: classroomIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: classroomIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Public Transit':
-        icon_source = new Icon({iconUrl: publictransitIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: publictransitIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Food and Drink':
-        icon_source = new Icon({iconUrl: foodIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: foodIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Shopping':
-        icon_source = new Icon({iconUrl: shoppingIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: shoppingIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Sports':
-        icon_source = new Icon({iconUrl: footballIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: footballIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Drinking Fountain':
-        icon_source = new Icon({iconUrl: waterIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: waterIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Parking':
-        icon_source = new Icon({iconUrl: parkingIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: parkingIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         default:
