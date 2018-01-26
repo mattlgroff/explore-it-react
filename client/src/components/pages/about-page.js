@@ -63,7 +63,7 @@ class AboutPage extends Component {
 									<h5 className="card-title text-center">Favorite Quote</h5>
 									<p className="text-center">"'You miss 100% of the shots you don't take.' - Wayne Gretzky" <br/> - Michael Scott"</p>
 									<h5 className="card-title text-center">Portfolio</h5>
-									<h6 className="card-text text-center"><br/> <a target="_blank" href="https://mattlgroff.github.io/">Matt's Portfolio</a></h6>
+									<h6 className="card-text text-center"> <a target="_blank" href="https://mattlgroff.github.io/">Matt's Portfolio</a></h6>
 									<h5 className="card-title text-center">About Me</h5>
 									<p className="text-center">I'm a lifelong learner who is always trying to better myself and become a greater developer. I try to be on the forefront of advancements in technology, especially software development.</p>
 								</div>
@@ -108,9 +108,9 @@ class AboutPage extends Component {
 										- Abelson / Sussman
 									</p>
 									<h5 className="card-title text-center">Portfolio</h5>
-									<h6 className="card-text text-center"><br/> <a target="_blank" href="http://jacktamas.com">Jacks's Portfolio</a></h6>
+									<h6 className="card-text text-center"> <a target="_blank" href="http://jacktamas.com">Jacks's Portfolio</a></h6>
 									<h5 className="card-title text-center">About Me</h5>
-									<p className="text-center">Software Developer who received a full-stack web development certificate from UCSD Extension Bootcamp. Focused on continuing to advance in the Web Development industry to make a better life for others.</p>
+									<p className="text-center">Software Developer who received a full-stack web development certificate. Focused on continuing to advance in the Web Development industry to make a better life for others.</p>
 								</div>
 							</div>
 						</div>
@@ -153,7 +153,7 @@ class AboutPage extends Component {
 									<h5 className="card-title text-center">Portfolio</h5>
 									<h6 className="card-text text-center"><br/> <a target="_blank" href="https://innawu1.github.io/">Ike's Portfolio</a></h6>
 									<h5 className="card-title text-center">About Me</h5>
-									<p className="text-center">Heading over. Started raining though so might take a few hours lol</p>
+									<p className="text-center">Full Stack Web Developer</p>
 								</div>
 							</div>
 						</div>
@@ -194,7 +194,7 @@ class AboutPage extends Component {
 									<h5 className="card-title text-center">Favorite Quote</h5>
 									<p className="text-center">“ The best method for accelerating a computer is the one that boosts it by 9.8 m/s2. ” - Anonymous</p>
 									<h5 className="card-title text-center">Portfolio</h5>
-									<h6 className="card-text text-center"><br/> <a target="_blank" href="https://jtogiaso.github.io/Basic-Portfolio">JT's Portfolio</a></h6>
+									<h6 className="card-text text-center"> <a target="_blank" href="https://jtogiaso.github.io/Basic-Portfolio">JT's Portfolio</a></h6>
 									<h5 className="card-title text-center">About Me</h5>
 									<p className="text-center">Coding allows me to realize my dreams to help others be more efficient and make the most of their lives, all while I get to network with the great people who also want to push the boundaries of technology. </p>
 								</div>
