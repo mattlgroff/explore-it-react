@@ -55,6 +55,11 @@ class Login extends Component {
             </div>
           </div>
         </div>
+        <footer className="customFooter">
+          <div className="container-fluid">
+            © 2018 Copyright Explore It
+        </div>
+      </footer>
       </div>
     );
   }
