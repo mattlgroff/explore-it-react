@@ -3,6 +3,7 @@ import {Popup, Marker, Map, TileLayer} from 'react-leaflet';
 import {Icon} from 'leaflet';
 import {Image} from 'react-bootstrap';
 import axiosHelper from '../../api/axios.js';
+import { browserHistory } from 'react-router';
 import cookie from 'react-cookies';
 import { Helmet } from 'react-helmet';
 import "./map.css";
@@ -19,7 +20,7 @@ import parkingIcon from '../../assets/icons/parking.svg';
 import classroomIcon from '../../assets/icons/classroom.svg';
 import publictransitIcon from '../../assets/icons/publictransit.svg';
 import pegmanIcon from '../../assets/icons/pegman.svg';
-const pegman = new Icon({iconUrl: pegmanIcon, iconSize: [32,64]});
+const pegman = new Icon({iconUrl: pegmanIcon, iconSize: [32,64], popupAnchor:  [0, -32]});
 
 class ExploreIt extends Component {
   constructor(props) {
@@ -70,16 +71,16 @@ class ExploreIt extends Component {
       this.setState({
         favPois: results.data
       });
-      console.log('favoritePois', this.state.favPois)
+      //console.log('favoritePois', this.state.favPois)
     })
     .catch(err => console.error(err));
   };
 
   isAuthenticated = () => {
     const user_token = cookie.load('user');
-    console.log('user_token', user_token)
+    //console.log('user_token', user_token)
     const isAuth = (user_token ? true : false);
-    console.log('is auth false?', isAuth)
+    //console.log('is auth false?', isAuth)
     if(isAuth === true){
       this.setState({
         user:user_token,
@@ -93,7 +94,7 @@ class ExploreIt extends Component {
     axiosHelper.getUserFavoriteList(user._id)
     .then(results => {
       this.setState({userFaveList: results.data.list});
-      console.log('this.userFaveList',this.state.userFaveList)
+      //console.log('this.userFaveList',this.state.userFaveList)
       this.getAllFavPoi(this.state.userFaveList)
     })
   };
@@ -139,10 +140,15 @@ class ExploreIt extends Component {
     })
   };
 
+  detailLink = (id) => {
+    //console.log(`Going to /detailed/${id}`);
+    browserHistory.push(`/detailed/${id}`);
+  };
+
   locate = (e) => {
     if ("geolocation" in navigator) {
       let watchId = navigator.geolocation.watchPosition(position => {
-        console.log("Moved map to different location");
+        //console.log("Moved map to different location");
         this.setState({
           lat: position.coords.latitude,
           long: position.coords.longitude,
@@ -151,12 +157,12 @@ class ExploreIt extends Component {
         });
 
         navigator.geolocation.clearWatch(watchId);
-        console.log("turned off gps")
+        //console.log("turned off gps")
       });
 
 
     } else {
-      console.log("No geolocation");
+      //console.log("No geolocation");
       /* geolocation IS NOT available */
     }
   };
@@ -172,39 +178,39 @@ class ExploreIt extends Component {
 
       switch(poi.category){
         case 'Attraction':
-        icon_source = new Icon({iconUrl: attractionIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: attractionIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Bathroom':
-        icon_source = new Icon({iconUrl: bathroomIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: bathroomIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Classroom':
-        icon_source = new Icon({iconUrl: classroomIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: classroomIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Public Transit':
-        icon_source = new Icon({iconUrl: publictransitIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: publictransitIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Food and Drink':
-        icon_source = new Icon({iconUrl: foodIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: foodIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Shopping':
-        icon_source = new Icon({iconUrl: shoppingIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: shoppingIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Sports':
-        icon_source = new Icon({iconUrl: footballIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: footballIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Drinking Fountain':
-        icon_source = new Icon({iconUrl: waterIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: waterIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         case 'Parking':
-        icon_source = new Icon({iconUrl: parkingIcon, iconSize: [32,32]});
+        icon_source = new Icon({iconUrl: parkingIcon, iconSize: [32,32], popupAnchor:  [0, -15]});
         break;
 
         default:
@@ -226,7 +232,13 @@ class ExploreIt extends Component {
           <div className='text-center animated fadeIn'>
             <h5 className='animated fadeIn'>{name}</h5>
             <Image className='img img-thumbnail img-responsive animated fadeIn delay-02s' src={img_src} width='200px'></Image>
+<<<<<<< HEAD
             <button className="btn btn-dark pop_btn animated fadeInUp delay-02s"><a className='detailed-link' href={`/detailed/${id}`}>Detailed View</a></button>
+=======
+            <hr></hr>
+            <button className="btn animated fadeInUp delay-03s" onClick={() => {this.detailLink(id)}}>Detailed View</button>
+            <hr></hr>
+>>>>>>> master
               {
                 (this.state.userFaveList.indexOf(id) === -1) && (
                   <button className='btn btn-dark animated fadeInUp delay-03s' id={id} onClick={this.addToFavorites}><img alt='list' className="nav-link img_btn" src='https://exploreit.herokuapp.com/favlist.png'/>Favorite</button>
@@ -255,7 +267,15 @@ class ExploreIt extends Component {
               <br></br>
               <span className=''>Please Login to add to Favorites.</span>
             <hr></hr>
+<<<<<<< HEAD
             <a className='animated fadeInUp delay-03s btn' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions <i className="fa fa-map" aria-hidden="true"></i></a>
+=======
+            <button className="btn animated fadeInUp delay-03s" onClick={() => {this.detailLink(id)}}>Detailed View</button>
+            <hr></hr>
+            Please Login to add to Favorites.
+            <br></br>
+            <a className='animated fadeInUp delay-03s' target='_blank' href={`https://www.google.com/maps/?daddr=${lat},${long}`}>Directions</a>
+>>>>>>> master
           </div>
         </Popup>
       );
@@ -276,7 +296,13 @@ class ExploreIt extends Component {
                 attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>'
                 url='https://api.mapbox.com/styles/v1/mattlgroff/cjcjws0xj18ea2sptc8iafsu5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWF0dGxncm9mZiIsImEiOiJjamMzczFpNTExNWNmMnhwZjFvNGlpdnR4In0.y1gUOwBdSx6lhv_7TcmKJA'
                 />
-                <Marker className='animated fadeInUp' icon={pegman} position={[this.state.gps_lat,this.state.gps_long]} />
+                <Marker className='animated fadeInUp' icon={pegman} position={[this.state.gps_lat,this.state.gps_long]}>
+                  <Popup minWidth={90}>
+                    <div className='text-center animated fadeIn'>
+                      <h4 className='animated fadeIn delay-01s'>You Are Here</h4>
+                    </div>
+                  </Popup>
+                </Marker>
               {
                 this.displayPois().map(this.renderMarkers)
               }

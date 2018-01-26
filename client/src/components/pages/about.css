@@ -13,7 +13,7 @@
 	clear: both;
 }
 .mainSecAbout {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../../../photos/aboutback.jpeg');
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../../../photos/aboutback.jpg');
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -41,6 +41,11 @@
 .bg-long {
 	height: 475px;
 }
+
+.login-panel {
+	width: 75%;
+}
+
 .card {
 	box-shadow: 1px 1px 6px #000;
 }
@@ -56,3 +61,11 @@
 	bottom: 0px;
 	right: 0px;
 }
+
+.errDiv {
+	visibility: hidden;
+}
+
+/*.center-div {
+	margin-top:100%;
+}*/

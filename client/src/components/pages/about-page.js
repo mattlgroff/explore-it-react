@@ -17,11 +17,11 @@ class AboutPage extends Component {
 					</Helmet>
 					<br/>
 
-					<div className="jumbotron text-center title-bg text-white">
-						<h1 className="display-4">Middle Stacked / On the Node</h1>
-						<p className="lead">The Team</p>
+					<div className="jumbotron">
+						<h1 className="display-4 brandName">Explore It</h1>
+						<p className="lead">Maps As A Service</p>
 						<hr className="my-4" />
-						<h3 className="text-center">We are Middle Stacked / On the Node. To check us out or contact us, Explore our cards below! </h3>
+						<p>The Team.</p>
 					</div>
 				</div>
 
