@@ -19,6 +19,9 @@ export function loginUser({ email, password }) {
       browserHistory.goBack();
     })
     .catch((error) => {
+      document.getElementById("ide").classList.add("errDiv")
+      document.getElementById("ide").classList.remove("errDiv")
+      document.getElementById("ide").innerHTML = ("The email or password you have entered is incorrect.");
       errorHandler(dispatch, error.response, AUTH_ERROR);
     });
   };
@@ -26,21 +29,39 @@ export function loginUser({ email, password }) {
 
 export function registerUser({ email, password }) {
   function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-  return function (dispatch) {
-    axios.post(`${API_URL}auth/register`, { email, password })
-    .then((response) => {
-      cookie.save('token', response.data.token, { path: '/' });
-      cookie.save('user', response.data.user, { path: '/' });
-      dispatch({ type: AUTH_USER });
-      browserHistory.goBack();
-    })
-    .catch((error) => {
-      errorHandler(dispatch, error.response, AUTH_ERROR);
-    });
-  };
+    var pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return pattern.test(String(email).toLowerCase());
+  }
+
+  if (!validateEmail(email)){
+    document.getElementById("ide").classList.add("errDiv")
+    document.getElementById("ide").classList.remove("errDiv")
+    document.getElementById("ide").innerHTML = ("Please enter a vaild email address.");
+    return;
+  }
+  else if (password.length < 4){
+    document.getElementById("ide").classList.add("errDiv")
+    document.getElementById("ide").classList.remove("errDiv")
+    document.getElementById("ide").innerHTML = ("Your password must be longer than 3 characters.");
+    return;
+  }
+  else{
+    return function (dispatch) {
+        axios.post(`${API_URL}auth/register`, { email, password })
+        .then((response) => {
+          cookie.save('token', response.data.token, { path: '/' });
+          cookie.save('user', response.data.user, { path: '/' });
+          dispatch({ type: AUTH_USER });
+          browserHistory.goBack();
+        })
+        .catch((error) => {
+          document.getElementById("ide").classList.add("errDiv")
+          document.getElementById("ide").classList.remove("errDiv")
+          document.getElementById("ide").innerHTML = ("Email has already been used.");
+          errorHandler(dispatch, error.response, AUTH_ERROR);
+        });
+      };
+  }
 }
 
 export function logoutUser(error) {

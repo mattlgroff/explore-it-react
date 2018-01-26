@@ -25,11 +25,7 @@ export function fetchUser(uid) {
 }
 
 export function errorHandler(dispatch, error, type) {
-  //console.log('Error type: ', type);
-  if (type === "auth_error"){
-    document.getElementById("ide").classList.remove("errDiv")
-
-  }
+  // console.log('Error type: ', error);
   //console.log(error);
 
 
