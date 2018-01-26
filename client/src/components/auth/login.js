@@ -47,7 +47,6 @@ class Login extends Component {
                 </div>
                 <br/>
                 <div className="errDiv text-danger" id="ide">
-                  The email or password you have entered is incorrect.
                 </div>
                 <br/>
                 <button type="submit" className="btn btn-primary">Login</button>
