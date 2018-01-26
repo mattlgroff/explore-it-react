@@ -1,13 +1,30 @@
 .card-pad{
 	padding: 5px;
 }
-
+.jumbotron {
+	color: #fff;
+	background-color: transparent;
+	text-shadow: 1px 2px 4px #000;
+	margin-bottom: 20px
+}
 .clearfix {
 	content: "";
 	display: block;
 	clear: both;
 }
+.mainSecAbout {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../../../photos/aboutback.jpeg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	height: 100%;
+	border-bottom: 2px solid rgba(100, 100, 100, 0.5);
 
+}
+.teamSec {
+	margin-top: 30px;
+}
 .hide-it-front{
 	backface-visibility: hidden;
 	transform-style: preserve-3d;
@@ -15,27 +32,28 @@
 	z-index: 1;
 	height: 100%;
 	width: 100%;
-	transition: all 0.5s ease-out; 
+	transition: all 0.5s ease-out;
 	transform: rotateY(0deg);
 }
-
+.portImg {
+	height: 75%;
+}
 .bg-long {
 	height: 475px;
 }
+<<<<<<< HEAD
 
 
 .login-panel {
 	width: 75%;
 }
 
+.card {
+	box-shadow: 1px 1px 6px #000;
+}
 .icon-p {
 	width: 50px;
 	height: 50px;
-}
-
-.title-bg {
-	background-repeat: no-repeat;
-	background-image: linear-gradient(#3c77dd , #112d5d);
 }
 
 .icon-r {

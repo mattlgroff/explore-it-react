@@ -6,11 +6,6 @@ import './header.css';
 import mainLogo from'./../../assets/icons/binoculars.ico';
 
 
-let divStyle = {
-    backgroundColor: "#2f2f2f",
-    borderBottom: "2px solid white"
-
-  };
   let logoSize = {
     width: "40px"
   }
@@ -80,12 +75,12 @@ class HeaderTemplate extends Component {
   render() {
     return (
       <div>
-        
-        <nav className="navbar navbar-expand-lg navbar-dark navbar-fixed-top animated fadeIn delay-02s" style={divStyle} >
+
+        <nav className="navbar navbar-expand-lg navbar-dark navbar-fixed-top animated fadeIn delay-02s">
           <div className="container-fluid">
 
             <div className="navbar-header">
-              
+
               <Link className="navbar-brand brandName" to="/"><img  src={mainLogo} style={logoSize} alt="Explore It"/> {this.props.logo}</Link>
             </div>
 

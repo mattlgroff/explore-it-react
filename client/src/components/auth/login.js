@@ -42,6 +42,9 @@ class Login extends Component {
               <label>Password</label>
               <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
             </div>
+            <div className="errDiv text-danger" id="ide">
+              "Error Message"
+            </div>
             <button type="submit" className="btn btn-primary">Login</button>
           </form>
         </div>
