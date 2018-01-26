@@ -61,7 +61,7 @@ class AboutPage extends Component {
 							<div className="back bg-long bg-light">
 								<div className="card-body center-div">
 									<h4 className="card-title text-center">Favorite Quote</h4>
-									<p className="text-center">"'You miss 100% of the shots you don't take.' - Wayne Gretzky" - Michael Scott"</p>
+									<p className="text-center">"'You miss 100% of the shots you don't take.' - Wayne Gretzky" <br/> - Michael Scott"</p>
 									<h4 className="card-title text-center">Portfolio</h4>
 									<h6 className="card-text text-center"><br/> <a target="_blank" href="https://mattlgroff.github.io/">Matt's Portfolio</a></h6>
 									<h4 className="card-title text-center">About Me</h4>
@@ -186,7 +186,11 @@ class AboutPage extends Component {
 							<div className="back bg-long bg-light">
 								<div className="card-body center-div">
 									<h4 className="card-title text-center">Favorite Quote</h4>
-									<p className="text-center">Coding allows me to realize my dreams and contribute to the programming community.</p>
+									<p className="text-center">“ The best method for accelerating a computer is the one that boosts it by 9.8 m/s2. ” - Anonymous</p>
+									<h4 className="card-title text-center">Portfolio</h4>
+									<h6 className="card-text text-center"><br/> <a target="_blank" href="https://jtogiaso.github.io/Basic-Portfolio">JT's Portfolio</a></h6>
+									<h4 className="card-title text-center">About Me</h4>
+									<p className="text-center">Coding allows me to realize my dreams and contribute to / network with the great people of the programming community.</p>
 								</div>
 							</div>
 						</div>
