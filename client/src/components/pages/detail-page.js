@@ -45,8 +45,12 @@ class DetailedView extends Component {
     this.findOne(this.props.routeParams.id)
   }
 
+  goBack = () => browserHistory.goBack();
+
   render() {
     return (
+  <div>
+  <div><span onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i> Go Back</span></div>
     <div className="container text-center" id="small">
         <Helmet>
           <title>{this.state.name}</title>
@@ -84,14 +88,14 @@ class DetailedView extends Component {
           <Marker className='animated fadeInUp' position={[this.state.lat,this.state.long]} />
         </Map>
 
-        <footer className="footer">
+        
+    </div>
+    <footer className="footer">
           <div className="container-fluid">
             © 2018 Copyright Explore It
         </div>
       </footer>
-
-
-    </div>
+  </div>
     );
   }
 }
