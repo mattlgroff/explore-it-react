@@ -1,6 +1,6 @@
 import axios from 'axios';
 import cookie from 'react-cookies';
-import { logoutUser } from './auth';
+//import { logoutUser } from './auth';
 import { FETCH_USER } from './types';
 export const API_URL = 'https://exploreit.herokuapp.com/';
 export const CLIENT_ROOT_URL = 'https://exploreit.herokuapp.com/';
@@ -25,27 +25,27 @@ export function fetchUser(uid) {
 }
 
 export function errorHandler(dispatch, error, type) {
-  console.log('Error type: ', type);
-  if (type == "auth_error"){
+  //console.log('Error type: ', type);
+  if (type === "auth_error"){
     document.getElementById("ide").classList.remove("errDiv")
 
   }
-  console.log(error);
+  //console.log(error);
 
 
 
-  let errorMessage = error.response ? error.response.data : error;
+  //let errorMessage = error.response ? error.response.data : error;
 
    // NOT AUTHENTICATED ERROR
-  if (error.status === 401 || error.response.status === 401) {
-    errorMessage = 'You are not authorized to do this.';
-    return dispatch(logoutUser(errorMessage));
-  }
+  // if (error.status === 401 || error.response.status === 401) {
+  //   errorMessage = 'You are not authorized to do this.';
+  //   return dispatch(logoutUser(errorMessage));
+  // }
 
-  dispatch({
-    type,
-    payload: errorMessage,
-  });
+  // dispatch({
+  //   type,
+  //   payload: errorMessage,
+  // });
 }
 
 // Post Request
