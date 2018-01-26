@@ -15,7 +15,7 @@ class HomePage extends Component {
 						<h1 className="display-4">Explore It</h1>
 						<p className="lead">Maps As A Service</p>
 						<hr className="my-4" />
-						<p>A (MaaS) Map As A Service company that provides interactive maps to create an intuitive and easy-to-use guest experience for prospective clients. Such clients could include: Zoos, Theme Parks, and Museums just to name a few.</p>
+						<p>A (MaaS) Map As A Service company that provides interactive maps to create an intuitive and easy-to-use guest experience for prospective clients.<br></br> Such clients could include: Zoos, Theme Parks, and Museums just to name a few.</p>
 					</div>
 				</div>
 				<div className="container-fluid moduleSec">
