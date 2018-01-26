@@ -9,7 +9,7 @@ class HomePage extends Component {
 			<div>
 				<div className="container-fluid text-center mainSec">
 					<Helmet>
-						<title>Explore Your World</title>
+						<title>{this.props.route.title}</title>
 					</Helmet>
 					<div className="jumbotron">
 						<h1 className="display-4">Explore It</h1>
