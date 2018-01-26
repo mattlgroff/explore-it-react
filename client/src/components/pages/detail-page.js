@@ -45,9 +45,12 @@ class DetailedView extends Component {
     this.findOne(this.props.routeParams.id)
   }
 
+  goBack = () => browserHistory.goBack();
+
   render() {
     return (
   <div>
+  <div><span onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i> Go Back</span></div>
     <div className="container text-center" id="small">
         <Helmet>
           <title>{this.state.name}</title>
