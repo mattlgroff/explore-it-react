@@ -47,6 +47,7 @@ class DetailedView extends Component {
 
   render() {
     return (
+  <div>
     <div className="container text-center" id="small">
         <Helmet>
           <title>{this.state.name}</title>
@@ -84,14 +85,14 @@ class DetailedView extends Component {
           <Marker className='animated fadeInUp' position={[this.state.lat,this.state.long]} />
         </Map>
 
-        <footer className="footer">
+        
+    </div>
+    <footer className="footer">
           <div className="container-fluid">
             © 2018 Copyright Explore It
         </div>
       </footer>
-
-
-    </div>
+  </div>
     );
   }
 }
