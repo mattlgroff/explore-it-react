@@ -209,11 +209,13 @@ class AboutPage extends Component {
 					<br/>
 				</div>
 			</div>
-			<footer className="footer">
-				<div className="container-fluid">
-					© 2018 Copyright Explore It
-			</div>
-		</footer>
+			{
+		// 	<footer className="footer">
+		// 		<div className="container-fluid">
+		// 			© 2018 Copyright Explore It
+		// 	</div>
+		// </footer>
+	}
 			</div>
 
 

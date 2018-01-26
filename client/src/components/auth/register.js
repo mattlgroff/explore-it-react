@@ -81,11 +81,13 @@ class Register extends Component {
             </div>
           </form>
         </div>
-        <footer className="customFooter">
-          <div className="container-fluid">
-            © 2018 Copyright Explore It
-        </div>
-        </footer>
+        {
+        // <footer className="customFooter">
+        //   <div className="container-fluid">
+        //     © 2018 Copyright Explore It
+        // </div>
+        // </footer>
+      }
       </div>
 
     );
