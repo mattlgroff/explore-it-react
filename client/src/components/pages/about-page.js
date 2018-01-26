@@ -62,9 +62,8 @@ class AboutPage extends Component {
 								<div className="card-body center-div">
 									<h5 className="card-title text-center">Favorite Quote</h5>
 									<p className="text-center">"'You miss 100% of the shots you don't take.' - Wayne Gretzky" <br/> - Michael Scott"</p>
-									<h5 className="card-title text-center">Portfolio</h5>
 									<h6 className="card-text text-center"> <a target="_blank" href="https://mattlgroff.github.io/">Matt's Portfolio</a></h6>
-									<h5 className="card-title text-center">About Me</h5>
+									<hr></hr>
 									<p className="text-center">I'm a lifelong learner who is always trying to better myself and become a greater developer. I try to be on the forefront of advancements in technology, especially software development.</p>
 								</div>
 							</div>
@@ -107,9 +106,8 @@ class AboutPage extends Component {
 									<p className="text-center">“ Programs must be written for people to read, and only incidentally for machines to execute. ”
 										- Abelson / Sussman
 									</p>
-									<h5 className="card-title text-center">Portfolio</h5>
 									<h6 className="card-text text-center"> <a target="_blank" href="http://jacktamas.com">Jacks's Portfolio</a></h6>
-									<h5 className="card-title text-center">About Me</h5>
+									<hr></hr>
 									<p className="text-center">Software Developer: certified in fullstack web development. Focused on continuing to advance in the Web Development industry to make a better life for others.</p>
 								</div>
 							</div>
@@ -150,9 +148,8 @@ class AboutPage extends Component {
 								<div className="card-body center-div">
 									<h5 className="card-title text-center">Favorite Quote</h5>
 									<p className="text-center">"Success is not final, failure is not fatal: it is the courage to continue that counts. " - Winston Churchill</p>
-									<h5 className="card-title text-center">Portfolio</h5>
 									<h6 className="card-text text-center"><a target="_blank" href="https://innawu1.github.io/">Ike's Portfolio</a></h6>
-									<h5 className="card-title text-center">About Me</h5>
+									<hr></hr>
 									<p className="text-center">Full Stack Web Developer</p>
 								</div>
 							</div>
@@ -193,9 +190,8 @@ class AboutPage extends Component {
 								<div className="card-body center-div">
 									<h5 className="card-title text-center">Favorite Quote</h5>
 									<p className="text-center">“ The best method for accelerating a computer is the one that boosts it by 9.8 m/s2. ” - Anonymous</p>
-									<h5 className="card-title text-center">Portfolio</h5>
 									<h6 className="card-text text-center"> <a target="_blank" href="https://jtogiaso.github.io/Basic-Portfolio">JT's Portfolio</a></h6>
-									<h5 className="card-title text-center">About Me</h5>
+									<hr></hr>
 									<p className="text-center">Coding allows me to realize my dreams to help others efficiently make the most of their lives, all while I get to network with great people who also strive to push the boundaries of technology. </p>
 								</div>
 							</div>
