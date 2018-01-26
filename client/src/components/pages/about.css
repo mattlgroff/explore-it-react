@@ -35,11 +35,35 @@
 	transition: all 0.5s ease-out;
 	transform: rotateY(0deg);
 }
-.portImg {
-	height: 75%;
+
+@media (min-width: 1px) and (max-width: 290px){
+	.portImg {
+		margin-top: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+		/*height: 20%;*/
+		width: 90%;
+	}
+
+	.bg-long {
+		height: 70%;
+		width: 100%;
+	}
 }
-.bg-long {
-	height: 475px;
+
+@media (min-width: 289px){
+	.portImg {
+		margin-top: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+		height: 370px;
+		width: 250px;
+	}
+
+	.bg-long {
+		height: 475px;
+		width: 270px;
+	}
 }
 
 .login-panel {
