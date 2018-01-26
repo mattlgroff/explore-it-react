@@ -49,6 +49,9 @@ nav.navbar.navbar-expand-lg.navbar-dark {
   background-color: #2f2f2f;
   border-bottom: 2px solid blue;
 }
+.border-none {
+  border-left: 1px solid #dee2e6;
+}
 
 .logo-font {
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
@@ -61,4 +64,9 @@ nav.navbar.navbar-expand-lg.navbar-dark {
 
 .spacing-nav {
   width: 75px;
+}
+@media (min-width:1px) and (max-width: 969px) {
+  .border-none {
+    border-left: none !important;
+  }
 }
