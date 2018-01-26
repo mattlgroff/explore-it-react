@@ -51,22 +51,32 @@ class Register extends Component {
     return (
       <div className="container">
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {this.renderAlert()}
+          
           <Helmet>
             <title>{this.props.route.name}</title>
           </Helmet>
-          <div className="row">
-            <div className="col-md-12">
-              <label>Email</label>
-              <Field name="email" className="form-control" component={renderField} type="text" autoComplete="username" />
+          <br/>
+          <br/>
+          <div className="card login-panel">
+            <div className="card-body">
               <div className="row">
                 <div className="col-md-12">
-                  <label>Password</label>
+                  <label>Email</label>
+                  <Field name="email" className="form-control" component={renderField} type="text" autoComplete="username" />
+                  <div className="row">
+                    <div className="col-md-12">
+                      <label>Password</label>
+                    </div>
+                  </div>
+                  <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
+                  <br/>
+                  <div className="errDiv text-danger" id="ide">
+                    This email is already in use.
+                  </div>
+                  <br/>
+                  <button type="submit" className="btn btn-primary">Register</button>
                 </div>
               </div>
-              <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
-              <br/>
-              <button type="submit" className="btn btn-primary">Register</button>
             </div>
           </div>
         </form>

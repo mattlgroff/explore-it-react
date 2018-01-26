@@ -26,7 +26,13 @@ export function fetchUser(uid) {
 
 export function errorHandler(dispatch, error, type) {
   console.log('Error type: ', type);
+  if (type == "auth_error"){
+    document.getElementById("ide").classList.remove("errDiv")
+
+  }
   console.log(error);
+
+
 
   let errorMessage = error.response ? error.response.data : error;
 

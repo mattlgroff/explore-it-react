@@ -31,19 +31,29 @@ class Login extends Component {
         <Helmet>
           <title>{this.props.route.name}</title>
         </Helmet>
+        <br/>
+        <br/>
         <div className="container">
-          <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-            {this.renderAlert()}
-            <div>
-              <label>Email</label>
-              <Field name="email" className="form-control" component="input" type="text" autoComplete="username" />
+          <div className="card login-panel">
+            <div className="card-body">
+              <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+                <div>
+                  <label>Email</label>
+                  <Field name="email" className="form-control" component="input" type="text" autoComplete="username" />
+                </div>
+                <div>
+                  <label>Password</label>
+                  <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
+                </div>
+                <br/>
+                <div className="errDiv text-danger" id="ide">
+                  The email or password you have entered is incorrect.
+                </div>
+                <br/>
+                <button type="submit" className="btn btn-primary">Login</button>
+              </form>
             </div>
-            <div>
-              <label>Password</label>
-              <Field name="password" className="form-control" component="input" type="password" autoComplete="current-password" />
-            </div>
-            <button type="submit" className="btn btn-primary">Login</button>
-          </form>
+          </div>
         </div>
       </div>
     );
