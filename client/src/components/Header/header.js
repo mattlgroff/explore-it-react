@@ -32,9 +32,8 @@ class HeaderTemplate extends Component {
         <li key={`${4}header`} className="nav-item">
           <Link className="nav-link" to="/about">About</Link>
         </li>,
-        <li key={`${5}header`} className="nav-item">
-          <Link className="nav-link" to="/logout">Logout {user.email}</Link>
-          <div className='rounded-circle userAvatar'></div>
+        <li key={`${5}header`} className="nav-item border-left">
+          <Link className="nav-link" to="/logout">Logout <i className="fa fa-user fa-lg userAvatar" aria-hidden="true"></i><span className='userEmail'>{user.email}</span></Link>
         </li>
       ];
 
@@ -55,7 +54,7 @@ class HeaderTemplate extends Component {
         <li className="nav-item" key={4}>
           <Link className="nav-link" to="/about">About</Link>
         </li>,
-        <li className="nav-item" key={5}>
+        <li className="nav-item border-left" key={5}>
           <Link className="nav-link" to="/login">Login</Link>
         </li>,
         <li className="nav-item" key={6}>
