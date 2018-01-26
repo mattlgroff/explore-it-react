@@ -37,6 +37,8 @@
 }
 .portImg {
 	height: 75%;
+	display: block;
+    margin: 0 auto;
 }
 .bg-long {
 	height: 475px;

@@ -30,7 +30,7 @@ class AboutPage extends Component {
 					<div className="col-lg-3 col-md-6 col-sm-6 card-pad animated fadeInUp delay-02s">
 						<div className="card bg-transparent flip">
 							<div className="front hide-it-front bg-light">
-								<img className="card-img-top portImg" src={mat} alt="Matthew Groff" />
+								<img className="img-fluid rounded-circle portImg" src={mat} alt="Matthew Groff" />
 								<div className="card-body">
 									<h4 className="card-title text-center">Matthew Groff</h4>
 									<ul className="list-inline text-center">
@@ -55,7 +55,7 @@ class AboutPage extends Component {
 											</a>
 										</li>
 									</ul>
-									<img className="card-img-top portImg icon-r" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Simpleicons_Interface_arrow-curve-pointing-to-right-direction.svg" alt="FLIP" />
+									<img className="portImg icon-r" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Simpleicons_Interface_arrow-curve-pointing-to-right-direction.svg" alt="FLIP" />
 								</div>
 							</div>
 							<div className="back bg-long bg-light">
@@ -73,7 +73,7 @@ class AboutPage extends Component {
 					<div className="col-lg-3 col-md-6 col-sm-6 card-pad animated fadeInUp delay-04s">
 						<div className="card bg-transparent flip">
 							<div className="front hide-it-front bg-light">
-								<img className="card-img-top portImg" src={jak} alt="Jack Tamas" />
+								<img className="img-fluid rounded-circle portImg" src={jak} alt="Jack Tamas" />
 								<div className="card-body">
 									<h4 className="card-title text-center">Jack Tamas</h4>
 									<ul className="list-inline text-center">
@@ -98,7 +98,7 @@ class AboutPage extends Component {
 											</a>
 										</li>
 									</ul>
-									<img className="card-img-top portImg icon-r" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Simpleicons_Interface_arrow-curve-pointing-to-right-direction.svg" alt="FLIP" />
+									<img className="portImg icon-r" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Simpleicons_Interface_arrow-curve-pointing-to-right-direction.svg" alt="FLIP" />
 								</div>
 							</div>
 							<div className="back bg-long bg-light">
@@ -110,7 +110,7 @@ class AboutPage extends Component {
 									<h5 className="card-title text-center">Portfolio</h5>
 									<h6 className="card-text text-center"> <a target="_blank" href="http://jacktamas.com">Jacks's Portfolio</a></h6>
 									<h5 className="card-title text-center">About Me</h5>
-									<p className="text-center">Software Developer who received a full-stack web development certificate. Focused on continuing to advance in the Web Development industry to make a better life for others.</p>
+									<p className="text-center">Software Developer: certified in fullstack web development. Focused on continuing to advance in the Web Development industry to make a better life for others.</p>
 								</div>
 							</div>
 						</div>
@@ -118,7 +118,7 @@ class AboutPage extends Component {
 					<div className="col-lg-3 col-md-6 col-sm-6 card-pad animated fadeInUp delay-05s">
 						<div className="card bg-transparent flip">
 							<div className="front hide-it-front bg-light">
-								<img className="card-img-top portImg" src={ike} alt="Ike Nnawuba" />
+								<img className="img-fluid rounded-circle portImg" src={ike} alt="Ike Nnawuba" />
 								<div className="card-body">
 									<h4 className="card-title text-center">Ike Nnawuba</h4>
 									<ul className="list-inline text-center">
@@ -143,7 +143,7 @@ class AboutPage extends Component {
 											</a>
 										</li>
 									</ul>
-									<img className="card-img-top portImg icon-r" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Simpleicons_Interface_arrow-curve-pointing-to-right-direction.svg" alt="FLIP" />
+									<img className="portImg icon-r" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Simpleicons_Interface_arrow-curve-pointing-to-right-direction.svg" alt="FLIP" />
 								</div>
 							</div>
 							<div className="back bg-long bg-light">
@@ -151,7 +151,7 @@ class AboutPage extends Component {
 									<h5 className="card-title text-center">Favorite Quote</h5>
 									<p className="text-center">"Success is not final, failure is not fatal: it is the courage to continue that counts. " - Winston Churchill</p>
 									<h5 className="card-title text-center">Portfolio</h5>
-									<h6 className="card-text text-center"><br/> <a target="_blank" href="https://innawu1.github.io/">Ike's Portfolio</a></h6>
+									<h6 className="card-text text-center"><a target="_blank" href="https://innawu1.github.io/">Ike's Portfolio</a></h6>
 									<h5 className="card-title text-center">About Me</h5>
 									<p className="text-center">Full Stack Web Developer</p>
 								</div>
@@ -161,7 +161,7 @@ class AboutPage extends Component {
 					<div className="col-lg-3 col-md-6 col-sm-6 card-pad animated fadeInUp delay-05s">
 						<div className="card bg-transparent flip">
 							<div className="front hide-it-front bg-light">
-								<img className="card-img-top portImg" src={fjt} alt="FJT" />
+								<img className="img-fluid rounded-circle portImg" src={fjt} alt="FJT" />
 								<div className="card-body">
 									<h4 className="card-title text-center">Fiaalii Togiaso</h4>
 									<ul className="list-inline text-center">
@@ -186,7 +186,7 @@ class AboutPage extends Component {
 											</a>
 										</li>
 									</ul>
-									<img className="card-img-top portImg icon-r" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Simpleicons_Interface_arrow-curve-pointing-to-right-direction.svg" alt="FLIP" />
+									<img className="portImg icon-r" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Simpleicons_Interface_arrow-curve-pointing-to-right-direction.svg" alt="FLIP" />
 								</div>
 							</div>
 							<div className="back bg-long bg-light">
@@ -196,7 +196,7 @@ class AboutPage extends Component {
 									<h5 className="card-title text-center">Portfolio</h5>
 									<h6 className="card-text text-center"> <a target="_blank" href="https://jtogiaso.github.io/Basic-Portfolio">JT's Portfolio</a></h6>
 									<h5 className="card-title text-center">About Me</h5>
-									<p className="text-center">Coding allows me to realize my dreams to help others be more efficient and make the most of their lives, all while I get to network with the great people who also want to push the boundaries of technology. </p>
+									<p className="text-center">Coding allows me to realize my dreams to help others efficiently make the most of their lives, all while I get to network with great people who also strive to push the boundaries of technology. </p>
 								</div>
 							</div>
 						</div>
