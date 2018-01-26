@@ -29,7 +29,7 @@ class AboutPage extends Component {
 				<div className="row">
 					<div className="col-lg-3 col-md-6 col-sm-6 card-pad animated fadeInUp delay-02s">
 						<div className="card bg-transparent flip">
-							<div className="front hide-it-front bg-light">
+							<div className="front hide-it-front bg-light text-center">
 								<img className="card-img-top portImg" src={mat} alt="Matthew Groff" />
 								<div className="card-body">
 									<h4 className="card-title text-center">Matthew Groff</h4>
@@ -72,7 +72,7 @@ class AboutPage extends Component {
 					</div>
 					<div className="col-lg-3 col-md-6 col-sm-6 card-pad animated fadeInUp delay-04s">
 						<div className="card bg-transparent flip">
-							<div className="front hide-it-front bg-light">
+							<div className="front hide-it-front bg-light text-center">
 								<img className="card-img-top portImg" src={jak} alt="Jack Tamas" />
 								<div className="card-body">
 									<h4 className="card-title text-center">Jack Tamas</h4>
@@ -117,7 +117,7 @@ class AboutPage extends Component {
 					</div>
 					<div className="col-lg-3 col-md-6 col-sm-6 card-pad animated fadeInUp delay-05s">
 						<div className="card bg-transparent flip">
-							<div className="front hide-it-front bg-light">
+							<div className="front hide-it-front bg-light text-center">
 								<img className="card-img-top portImg" src={ike} alt="Ike Nnawuba" />
 								<div className="card-body">
 									<h4 className="card-title text-center">Ike Nnawuba</h4>
@@ -160,7 +160,7 @@ class AboutPage extends Component {
 					</div>
 					<div className="col-lg-3 col-md-6 col-sm-6 card-pad animated fadeInUp delay-05s">
 						<div className="card bg-transparent flip">
-							<div className="front hide-it-front bg-light">
+							<div className="front hide-it-front bg-light text-center">
 								<img className="card-img-top portImg" src={fjt} alt="FJT" />
 								<div className="card-body">
 									<h4 className="card-title text-center">Fiaalii Togiaso</h4>
