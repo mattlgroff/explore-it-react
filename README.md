@@ -1,11 +1,21 @@
 # Explore It Server
-The server component to the Explore It "Maps As A Service" project.
-For client(s) see:
-
-- [Belmont Park React Client](https://github.com/mattlgroff/belmont-client)
+The server for the [Explore It "Maps As A Service"](https://exploreit.herokuapp.com/) project.
 
 ## Installation
 ```
 npm install
 npm start
+```
+
+## Build Client
+```
+cd client
+yarn install
+cd ..
+npm run build
+```
+
+## Start Client 
+```
+npm run start-client
 ```
