@@ -1,6 +1,8 @@
 .card-pad{
 	padding: 5px;
 }
+
+
 .jumbotron {
 	color: #fff;
 	background-color: transparent;
@@ -35,9 +37,28 @@
 	transition: all 0.5s ease-out;
 	transform: rotateY(0deg);
 }
-.portImg {
-	height: 75%;
+@media (max-width: 220px){
+	.portImg {
+		height: 40%;
+		display: block;
+	  margin: 0 auto;
+	}
 }
+
+@media (min-width: 219px){
+	.portImg {
+		height: 60%;
+		display: block;
+	  margin: 0 auto;
+	}
+}
+
+/*.portImg {
+	height: 60%;
+	display: block;
+  margin: 0 auto;
+}
+*/
 .bg-long {
 	height: 475px;
 }
@@ -49,6 +70,7 @@
 .card {
 	box-shadow: 1px 1px 6px #000;
 }
+
 .icon-p {
 	width: 50px;
 	height: 50px;
